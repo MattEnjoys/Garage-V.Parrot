@@ -1,0 +1,137 @@
+/*
+-------------------------------------------------------------------------------------
+                                        MAIN
+-------------------------------------------------------------------------------------
+*/
+main {
+    width: 100%;
+}
+/*
+-------------------------------------------------------------------------------------
+                                        SECTION TEXTE ET FILTRE
+-------------------------------------------------------------------------------------
+*/
+section {
+    width: 100%;
+}
+.TextFilter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    padding: 50% 1% 5% 1%;
+}
+/* FILTRE */
+.Filters {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.Kms,
+.Prices,
+.Years {
+    padding: 5%;
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.Validated {
+    width: auto;
+}
+.Reinit {
+    width: auto;
+}
+.Reinit:hover {
+    border: 1px solid black;
+}
+/*
+-------------------------------------------------------------------------------------
+                                        SECTION CARS
+-------------------------------------------------------------------------------------
+*/
+/* Le conteneur */
+.Cars {
+    width: 100%;
+    padding: 5%;
+}
+.DivContainer {
+    width: auto;
+}
+/* VOITURES */
+.container {
+    width: 100%;
+}
+.card-img-top {
+    height: 200px;
+    /* Pour que l'image couvre toute la zone tout en maintenant son ratio */
+    object-fit: cover;
+}
+/* PRIX */
+.price {
+    font-style: italic;
+    font-weight: bolder;
+}
+/*
+-------------------------------------------------------------------------------------
+                                        RESPONSIVE
+-------------------------------------------------------------------------------------
+*/
+@media screen and (min-width: 425px) {
+    /* Texte */
+    .TextFilter {
+        padding: 40% 1% 5% 1%;
+    }
+    /* Filtre */
+    .Filters {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .Kms,
+    .Prices,
+    .Years {
+        padding: 3%;
+    }
+    .buttons {
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 768px) {
+    /* Texte */
+    .TextFilter {
+        padding: 20% 1% 5% 1%;
+    }
+    /* Filtre */
+    .Filters {
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 992px) {
+    /* Le conteneur */
+    .Cars {
+        padding: 12% 0 5% 0;
+    }
+    .Cars {
+        padding: 2%;
+    }
+}
+@media screen and (min-width: 1024px) {
+    /* Texte */
+    .TextFilter {
+        width: 80%;
+        padding: 15% 1% 5% 1%;
+    }
+}
+@media screen and (min-width: 1416px) {
+    /* Texte */
+    .TextFilter {
+        padding: 5% 1% 5% 1%;
+    }
+}

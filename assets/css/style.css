@@ -1,0 +1,219 @@
+/*
+-------------------------------------------------------------------------------------
+                                        SECTION CARROUSEL
+-------------------------------------------------------------------------------------
+*/
+/* Le conteneur */
+.ModifiedContainer1 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.ModifiedContainerDiv {
+    margin: 1% 10% 1% 10%;
+    justify-content: center;
+    width: auto;
+}
+/* Titre h1 texte */
+.ModifiedContainer1 h1 {
+    margin: 1%;
+    text-align: center;
+}
+/* Texte */
+p.lead {
+    margin: 3%;
+    font-weight: 400;
+}
+/*
+-------------------------------------------------------------------------------------
+                                        SECTION SERVICES
+-------------------------------------------------------------------------------------
+*/
+/* Le conteneur */
+.ModifiedContainer2 {
+    padding-top: 1%;
+    margin: 5%;
+}
+/* Titre h1 Services */
+.ModifiedContainer2 h1 {
+    margin: 1%;
+    text-align: center;
+}
+/* Cards de Services */
+.TextService {
+    padding: 3%;
+}
+.card-titleService {
+    font-size: large;
+}
+.card-textService,
+.text-body-index {
+    font-size: small;
+}
+
+.text-body-index:hover {
+    text-decoration: none;
+}
+/* Images des cards */
+.ImgService {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3%;
+}
+.img-fluid {
+    display: none;
+}
+/*
+-------------------------------------------------------------------------------------
+                                        SECTION AVIS
+-------------------------------------------------------------------------------------
+*/
+/* Le conteneur */
+.CustomersReviews {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9777f;
+    padding: 1% 5% 1% 5%;
+}
+/* Laisser un avis */
+.FormReviews {
+    width: 100%;
+    border: solid 1px black;
+    background-color: rgba(217, 217, 217, 0.54);
+}
+.card-titleReviews {
+    font-size: large;
+    font-weight: bolder;
+}
+.FormRow {
+    width: 100%;
+}
+input.h2,
+textarea.h2 {
+    border: solid 1px black;
+    font-size: 1.2rem;
+}
+textarea {
+    width: 100%;
+    height: 200px;
+    resize: both;
+}
+/* Avis clients */
+.Customers {
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 100%;
+    padding: 1%;
+}
+.card-titleCustomers {
+    font-size: large;
+    margin: 5% 0 5% 0;
+}
+.CardCustomers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+.CardCustomers div.card {
+    text-align: center;
+    -webkit-box-shadow: -23px 22px 26px -7px rgba(0, 0, 0, 0.3);
+    box-shadow: -23px 22px 26px -7px rgba(0, 0, 0, 0.3);
+    width: 90%;
+}
+.CardCustomers div.card-body {
+    padding: 0;
+    font-size: x-small;
+}
+/*
+-------------------------------------------------------------------------------------
+                                        RESPONSIVE
+-------------------------------------------------------------------------------------
+*/
+@media screen and (min-width: 768px) {
+    /* SECTION SERVICE */
+    /* Contenu des services */
+    .card-textService,
+    .text-body-index {
+        font-size: medium;
+    }
+    /* Les images des services */
+    .img-fluid {
+        display: block;
+    }
+    /* SECTION AVIS */
+    /* Le conteneur */
+    .CustomersReviews {
+        padding: 0;
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 1024px) {
+    /* SECTION SERVICE */
+    /* Contenu des services */
+    .card-textService,
+    .text-body-index {
+        font-size: large;
+    }
+    /* SECTION AVIS */
+    /* Le conteneur */
+    .CustomersReviews {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #d9777f;
+    }
+    /* Laisser un avis */
+    .FormReviews {
+        width: 40%;
+    }
+    /*Avis Clients*/
+    .Customers {
+        width: 60%;
+        padding: 1%;
+    }
+    .CardCustomers {
+        width: auto;
+        flex-direction: row;
+    }
+    .card-titleCustomers {
+        margin: 1% 0 1% 0;
+    }
+}
+@media screen and (min-width: 1273px) {
+    /* SECTION SERVICE */
+    /* Contenu des services */
+    .card-textService,
+    .text-body-index {
+        font-size: x-large;
+    }
+    /* SECTION AVIS */
+    /* Le conteneur */
+    .CustomersReviews {
+        padding: 0;
+    }
+    /* Laisser un avis */
+    .FormReviews {
+        width: 20%;
+    }
+    /*Avis Clients*/
+    .Customers {
+        width: 50%;
+        padding: 1% 5%;
+    }
+    .CardCustomers {
+        width: auto;
+        flex-direction: row;
+    }
+    .card-titleCustomers {
+        margin: 1% 0 1% 0;
+    }
+}

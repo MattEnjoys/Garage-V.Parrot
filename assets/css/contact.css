@@ -1,0 +1,60 @@
+/*
+-------------------------------------------------------------------------------------
+                                        SECTION BANNIERE
+-------------------------------------------------------------------------------------
+*/
+main {
+    height: 1000px;
+}
+.ImgBannerTop {
+    height: 1000px;
+}
+/* Formulaire de contact */
+.contact-box {
+    max-width: 850px;
+    background-color: rgba(242, 242, 242, 0.63);
+    box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
+    border: 2px solid black;
+}
+/* .RightContact {
+    width: auto;
+} */
+
+.RightContact,
+.LeftConnexion {
+    padding: 25px 25px;
+}
+
+.RightConnexion {
+    background: url("/assets/images/Connexion\ BG.jpg") center no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+h2 {
+    position: relative;
+    padding: 0 0 10px;
+    margin-bottom: 10px;
+}
+h2:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: #d92332;
+}
+@media screen and (min-width: 426px) {
+    .contact-box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 16% 0 16% 0;
+    }
+    .LeftContact {
+        background: url("/assets/images/Contact\ BG.jpg") center no-repeat;
+        background-size: cover;
+        height: 100%;
+    }
+}

@@ -1,0 +1,36 @@
+/*
+-------------------------------------------------------------------------------------
+                                        SECTION SERVICE CARROSSERIE
+-------------------------------------------------------------------------------------
+*/
+/* Le conteneur */
+.Services {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/* Les cards */
+.ContentCard,
+.card {
+    width: 100%;
+}
+.card-body {
+    padding: 0;
+}
+/*
+-------------------------------------------------------------------------------------
+                                        RESPONSIVE
+-------------------------------------------------------------------------------------
+*/
+@media screen and (min-width: 769px) {
+    /* Les cards */
+    .ContentCard {
+        width: 50%;
+    }
+}
+@media screen and (min-width: 1024px) {
+    /* Les cards */
+    .card {
+        width: 70%;
+    }
+}

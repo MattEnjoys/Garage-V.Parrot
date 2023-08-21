@@ -1,0 +1,20 @@
+/*
+-------------------------------------------------------------------------------------
+                                        SECTION BANNIERE
+-------------------------------------------------------------------------------------
+*/
+main {
+    height: 1000px;
+}
+.ImgBannerTop {
+    height: 1000px;
+}
+/* Formulaire de connexion */
+.formCo small {
+    font-size: x-large;
+}
+.formCo {
+    background-color: rgba(242, 242, 242, 0.63);
+    box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
+    border: 2px solid black;
+}

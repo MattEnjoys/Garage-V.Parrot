@@ -1,0 +1,348 @@
+/*
+-------------------------------------------------------------------------------------
+                                        CHARTE GRAPHIQUE
+-------------------------------------------------------------------------------------
+*/
+/* Import des fonts */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;600&family=Martel+Sans:wght@200;400;600&family=Quattrocento+Sans:wght@400;700&display=swap");
+/* Fonts */
+.h1 {
+    font-family: Martel Sans;
+    font-size: 2rem;
+}
+.h2-h5 {
+    font-family: Josefin Sans;
+    font-size: 1.5rem;
+}
+.h3-p {
+    font-family: Quatrocento Sans;
+    font-size: 1rem;
+}
+/* Couleurs de font*/
+.Red1 {
+    color: #d92332;
+}
+.Red2 {
+    color: #d94350;
+}
+.Pink {
+    color: #d9777f;
+}
+.Black {
+    color: #262526;
+}
+.Grey {
+    color: #f2f2f2;
+}
+/* Couleurs de background*/
+.B-Red1 {
+    background-color: #d92332;
+}
+.B-Red2 {
+    background-color: #d94350;
+}
+.B-Pink {
+    background-color: #d9777f;
+}
+.B-Black {
+    background-color: #262526;
+}
+.B-Grey {
+    background-color: #f2f2f2;
+}
+/*
+-------------------------------------------------------------------------------------
+                                        RESET GENERAL
+-------------------------------------------------------------------------------------
+*/
+/* Réinitialisation de tous les éléments et pseudo-éléments à utiliser.*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+/* Réinitialisation générale de tous les margins et paddings. */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+    padding: 0;
+}
+/* Supprimer tous les styles de liste sur les éléments li */
+li {
+    list-style: none;
+}
+/* Défilement fluide */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+/*
+- Remplir la fenêtre d'affichage, même lorsqu'elle est vide, à 100vh
+- Rendre le texte plus beau.
+- Par défaut, 1.2
+*/
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+/* Le soulignement s'affiche de manière beaucoup plus lisible */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+/* Styles d'image fluides */
+img,
+picture {
+    display: block;
+}
+/* Plus de texte minuscule (mono, dans certains cas). */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+/*
+Une seule @media requête qui réinitialise les animations, les transitions et le comportement de défilement si l' utilisateur préfère un mouvement réduit.
+ */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+/*
+-------------------------------------------------------------------------------------
+                                        RESET DES ELEMENTS DUPLIQUES
+-------------------------------------------------------------------------------------
+*/
+/* NAVBAR */
+.cc-navbar {
+    background-color: #f2f2f2;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.container-fluid {
+    flex-direction: column;
+    justify-content: center;
+}
+a.nav-link,
+a.btn-order {
+    font-size: medium;
+}
+.nav-link:hover {
+    color: #d92332;
+}
+.btn-order {
+    background-color: #d92332;
+}
+.btn-order:hover {
+    color: #d92332;
+    border: 1px solid #262526;
+}
+.NavFollow {
+    display: none;
+}
+.Follow {
+    padding: 0;
+}
+/* SECTION BANNIERE */
+/* Le conteneur */
+.ImgBannerTop {
+    height: 60vh;
+    width: 100%;
+}
+/* Image */
+.ImgBanner {
+    height: 100%;
+}
+/* Images des bannières */
+.ImgWelcome {
+    background: url("/assets/images/Accueil.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.ImgCarrosserie {
+    background: url("/assets/images/Carrosserie.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.ImgMecanique {
+    background: url("/assets/images/Mécanique.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.ImgEntretien {
+    background: url("/assets/images/Entretien.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.ImgContact {
+    background: url("/assets/images/Contact\ BG.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 1000px;
+}
+.ImgConnexion {
+    background: url("/assets/images/Connexion\ BG.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 1000px;
+}
+/* Texte sur Image avec fond */
+.WhiteBackground {
+    position: absolute;
+    top: center;
+    background-color: rgba(242, 242, 242, 0.861);
+    padding: 1%;
+    margin: 2%;
+    font-size: x-large;
+}
+/* CARDS */
+.card {
+    width: 60%;
+    border: solid 1px black;
+}
+.card-title {
+    border: solid 1px black;
+    margin: 0;
+}
+.card-text {
+    font-size: medium;
+}
+.p.card-text.h3-p.p-2 {
+    background-color: #d92332;
+}
+/* INPUTS */
+.field {
+    width: 100%;
+    border: 2px solid #262526;
+    outline: none;
+    background-color: rgba(230, 230, 230, 0.6);
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 22px;
+    transition: 0.3s;
+}
+.field:hover {
+    background-color: #d9777f;
+}
+.field:focus {
+    border: 2px solid #d92332;
+    background-color: #fff;
+}
+.field::placeholder {
+    color: #262526;
+}
+textarea {
+    min-height: 150px;
+}
+/* BOUTONS D'ENVOI */
+.btn-send {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #d92332;
+    color: #262526;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-send:hover {
+    color: #d92332;
+    text-decoration: underline;
+    border: solid 1px black;
+}
+/* FOOTER */
+.rowfooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: auto;
+}
+.list-follow li {
+    margin: 5px;
+}
+footer h5.h1 {
+    font-size: 1.5em;
+}
+footer li a.nav-link {
+    font-size: 0.5em;
+}
+.Adress:hover,
+.Contact:hover {
+    text-decoration: underline;
+}
+div h5.copyright {
+    font-size: 1em;
+}
+/*
+-------------------------------------------------------------------------------------
+                                        RESPONSIVE DU SITE
+-------------------------------------------------------------------------------------
+*/
+@media screen and (min-width: 768px) {
+    /* NAVBAR */
+    .container-fluid {
+        flex-direction: row;
+    }
+    /* Texte sur Image avec fond */
+    .WhiteBackground {
+        font-size: x-large;
+    }
+}
+@media screen and (min-width: 992px) {
+    .nav-link,
+    .btn-order {
+        font-size: medium;
+    }
+}
+@media screen and (max-width: 991px) {
+    /* Icones Menu Burger*/
+    .NavFollow {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 16px;
+    }
+    .NavFollow li {
+        margin: 3%;
+    }
+}
+@media screen and (min-width: 1209px) {
+    a.nav-link,
+    a.btn-order {
+        font-size: x-large;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .nav-link,
+    .btn-order {
+        font-size: large;
+    }
+}
