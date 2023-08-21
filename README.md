@@ -1,66 +1,49 @@
 # GARAGE V.PARROT
 
-Après avoir suivis le cahier des charges et établis tous les documents de bases nécéssaire au bon développement de l'application de Monsieur Parrot pour son garage, Je commence par coder la structure brute du site en html.
+Après avoir réalisé le site en HTML CSS JS et Bootstrap, je rends dynamique mon site en le passant en PHP.
 
-## reset.css
+Dans un premier temps, je passe tous les fichier .html en .php.
+Pour résoudre les bug d'affichage image et css, j'enlève tous les "/" au début de mes "/assets" et links css.
+Puis, en structurant le travail, je réalise le projet en différentes étapes:
 
-Je met en place une feuille de style générale afin d'adapter la charte graphique imposé par le client.
-Elle ciblera tous les éléments commun au site: Navbar, Bannière d'image, Cards, Inputs, boutons d'envoi et Footer.
+## Centraliser le header et le footer
 
-## services.css
+> Création d'un dossier templates avec deux fichiers header.php et footer.php
+> On récupère le header de index.php et on le met dans header.php.
+> On récupère le footer de index.php et on le met dans footer.php.
 
-Afin de créer la visibilité sur les éléments d'évaluation, je décide de copier les différents services sous trois catégories, modélisés en tant que page distinctes pour y afficher les services concernés.
-Je met en place une feuille de style commune aux trois page, afin d'adapter cette idée.
-Elle ciblera tous les éléments suivants: Le conteneur Service, et les cards.
+> On réalise des require_once **DIR** . importer les deux fichiers dans toutes les pages depuis le repertoire courant.
 
-# Organisation des branchs et des commits
+## Mise en place du menu dynamique
 
-### \_ branch index.html
+> Grace à cette fonction PHP, on rends le menu dynamique avec une classe active sur les items.
 
-> Page index.html.
-> Feuille de style attribuée.
-> Commits associés à cette page.
+> <?php foreach ($mainMenu as $key => $menuItem) {
+>   if (!array_key_exists("exclude", $menuItem)) {
+>   ?>
+>   <li class="nav-item"><a href="<?= $key; ?>"
+>   class="nav-link h2-h5 Red1 text-center
+>   <?php if ($key === $currentPage) {
+>   echo "active";
+>  }
+>   ?>"><?= $menuItem["menu_title"]; ?></a>
+>   </li>
+>   <?php }
+>   } ?>
 
-### \_ branch carrosserie.html
+## Rendre le head title et la meta description dynamique
 
-> Page carrosserie.html.
-> Feuille de style attribuée.
-> Commits associés à cette page.
+> Grace à cette fonction PHP, on rends dynamique ces données.
 
-### \_ branch mecanique.html
+>    <title>
+>        <?= $mainMenu[$currentPage]["head_title"]; ?>
+>    </title>
 
-> Page mecanique.html.
-> Feuille de style attribuée.
-> Commits associés à cette page.
+>   <meta name="description" content="<?= $mainMenu[$currentPage]["meta_description"]; ?>">
 
-### \_ branch entretien.html
-
-> Page entretien.html.
-> Feuille de style attribuée.
-> Commits associés à cette page.
-
-### \_ branch contact.html
-
-> Page contact.html.
-> Feuille de style attribuée.
-> Commits associés à cette page.
-
-### \_ branch espace_pro.html
-
-> Page espace_pro.html.
-> Feuille de style attribuée.
-> Commits associés à cette page.
-
-### \_ branch vehicules_d_occasion.html
-
-> Page vehicules_d_occasion.html.
-> Feuille de style attribuée.
-> Commits associés à cette page.
-
-> Filtre non fonctionnel.
-
-### \_ branch vehicule_d_occasion_detaille.html
-
-> Page Véhicule_d_occasion_detaille.html (non visible sur la NavBar)
-> Feuille de style attribuée.
-> Commits associés à cette page.
+> |
+> |
+> On crée les dossiers uploads et voitures pour y mettre les images de voitures.
+> |
+> |
+> En fonction de la page affichée, il faudra afficher le bon CSS correspondant.
