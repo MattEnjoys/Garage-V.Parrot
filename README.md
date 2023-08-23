@@ -111,27 +111,30 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 > > Lorem Ipsum passage"
 > > ],
 > > [
+> >
 > > > > "title" => "Redressement de la carrosserie",
 > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random
 > > > > text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
 > > > > McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
 > > > > consectetur, from a Lorem Ipsum passage"
 > > > > ],
-> > [
-> > > > "title" => "Covering",
-> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in
-> > > > a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
-> > > > at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
-> > > > passage"
-> > > > ],
-> > [
-> > > > "title" => "Teintage des vitres",
-> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It
-> > > > has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
-> > > > Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
-> > > > a Lorem Ipsum passage"
-> > > > ],
-> > ];
+> > > > [
+> > > >
+> > > > > > > > "title" => "Covering",
+> > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in
+> > > > > > > > a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
+> > > > > > > > at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
+> > > > > > > > passage"
+> > > > > > > > ],
+> > > > > > > > [
+> > > > > > > >
+> > > > > > > > > > > > > > > > "title" => "Teintage des vitres",
+> > > > > > > > > > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It
+> > > > > > > > > > > > > > > > has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
+> > > > > > > > > > > > > > > > Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
+> > > > > > > > > > > > > > > > a Lorem Ipsum passage"
+> > > > > > > > > > > > > > > > ],
+> > > > > > > > > > > > > > > > ];
 >
 > $cards_entretien = [
 > [
@@ -143,27 +146,30 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 > > Lorem Ipsum passage"
 > > ],
 > > [
+> >
 > > > > "title" => "Vidange",
 > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random
 > > > > text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
 > > > > McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
 > > > > consectetur, from a Lorem Ipsum passage"
 > > > > ],
-> > [
-> > > > "title" => "Révision",
-> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in
-> > > > a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
-> > > > at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
-> > > > passage"
-> > > > ],
-> > [
-> > > > "title" => "Changement des filtres",
-> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It
-> > > > has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
-> > > > Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
-> > > > a Lorem Ipsum passage"
-> > > > ],
-> > ];
+> > > > [
+> > > >
+> > > > > > > > "title" => "Révision",
+> > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in
+> > > > > > > > a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
+> > > > > > > > at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
+> > > > > > > > passage"
+> > > > > > > > ],
+> > > > > > > > [
+> > > > > > > >
+> > > > > > > > > > > > > > > > "title" => "Changement des filtres",
+> > > > > > > > > > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It
+> > > > > > > > > > > > > > > > has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
+> > > > > > > > > > > > > > > > Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
+> > > > > > > > > > > > > > > > a Lorem Ipsum passage"
+> > > > > > > > > > > > > > > > ],
+> > > > > > > > > > > > > > > > ];
 >
 > $cards_mecanique = [
 > [
@@ -175,27 +181,30 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 > > Lorem Ipsum passage"
 > > ],
 > > [
+> >
 > > > > "title" => "Boîte de vitesse, distribution et embrayage",
 > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random
 > > > > text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
 > > > > McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
 > > > > consectetur, from a Lorem Ipsum passage"
 > > > > ],
-> > [
-> > > > "title" => "Climatisation",
-> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in
-> > > > a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
-> > > > at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
-> > > > passage"
-> > > > ],
-> > [
-> > > > "title" => "Amortisseurs",
-> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It
-> > > > has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
-> > > > Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
-> > > > a Lorem Ipsum passage"
-> > > > ],
-> > ];
+> > > > [
+> > > >
+> > > > > > > > "title" => "Climatisation",
+> > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in
+> > > > > > > > a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
+> > > > > > > > at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
+> > > > > > > > passage"
+> > > > > > > > ],
+> > > > > > > > [
+> > > > > > > >
+> > > > > > > > > > > > > > > > "title" => "Amortisseurs",
+> > > > > > > > > > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It
+> > > > > > > > > > > > > > > > has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
+> > > > > > > > > > > > > > > > Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
+> > > > > > > > > > > > > > > > a Lorem Ipsum passage"
+> > > > > > > > > > > > > > > > ],
+> > > > > > > > > > > > > > > > ];
 
 > Je vais un require_once **DIR** . "/lib/cards.php"; sur les fichiers carrosserie.php, mecanique.php et entretien.php.
 
@@ -210,4 +219,28 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 
 ## Dynamiser les cars de services de index.php
 
-Je procède au même schéma que précédemment.
+> je récupere les infos en dur de la section et je les mets dans un fichier services.php:
+
+> $services = [
+> [
+>
+> > "title" => "Carrosserie",
+> > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at",
+> > "image" => "Carrosserie.jpg"
+> > ],
+> > [
+> >
+> > > > "title" => "Mécanique",
+> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at",
+> > > > "image" => "Mécanique.jpg"
+> > > > ],
+> > > > [
+> > > > > > > > "title" => "Entretien",
+> > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at",
+> > > > > > > > "image" => "Entretien.jpg"
+> > > > > > > > ],
+> > > > ];
+
+> Je crée service_part.php ou je met la structure de la card que j'appelle en require dans la section services de index.php pour boucler sur les cards de index.php.
+
+## Dynamiser les avis clients de index.php

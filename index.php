@@ -113,11 +113,11 @@ $currentPageCSS = getCurrentPageCSS();
             Les services que nous proposons:
         </h1>
         <div class="d-flex flex-column justify-content-center align-items-center">
-            <!-- Service 1 -->
+            <!-- Service -->
             <?php foreach ($services as $key => $service) {
                 require __DIR__ . "/templates/service_part.php";
             } ?>
-            <!-- Fin Service 1 -->
+            <!-- Fin Service -->
         </div>
     </div>
 </section>
