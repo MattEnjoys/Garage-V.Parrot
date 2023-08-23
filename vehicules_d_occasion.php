@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/lib/car.php";
 require_once __DIR__ . "/templates/header.php";
 ?>
 <!--
@@ -88,380 +89,55 @@ require_once __DIR__ . "/templates/header.php";
         <div id="filteredCarsContainer"
              class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
             <!-- Voiture -->
-            <div class="col d-flex justify-content-center">
-                <div class="card m-3"
-                     style="width: 18rem">
-                    <img src="assets/images/Mc Laren P1.jpg"
-                         class="card-img-top"
-                         alt="Mc Laren P1" />
-                    <div class="card-body B-Grey">
-                        <h5 class="h2-h5 text-center">Mc Laren</h5>
-                        <h5 class="h2-h5 text-center">P1</h5>
-                        <p class="card-text Red1 h3-p">
-                            Année de construction
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            2009
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Motorisation
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            Hybride Rechargeable
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Kilomètres rééls
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            18 987 kms
-                        </p>
-                        <hr />
-                        <div class="d-flex justify-content-between m-3">
-                            <p class="card-text price Black h3-p">
-                                Prix
+            <?php foreach ($cars as $key => $car) { ?>
+                <div class="col d-flex justify-content-center">
+                    <div class="card m-3"
+                         style="width: 18rem">
+                        <img src="assets/images/<?= $car["image"] ?>"
+                             class="card-img-top"
+                             alt="<?= $car["title"] ?>" />
+                        <div class="card-body B-Grey">
+                            <h5 class="h2-h5 text-center">
+                                <?= $car["title"] ?>
+                            </h5>
+                            <h5 class="h2-h5 text-center">
+                                <?= $car["model"] ?>
+                            </h5>
+                            <p class="card-text Red1 h3-p">
+                                Année de construction
                             </p>
-                            <p class="card-text-Year price Black h3-p">
-                                54 328 €
+                            <p class="card-text-Year text-end Red1 h3-p">
+                                <?= $car["year"] ?>
                             </p>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="assets/html/vehicule_d_occasion_detaille.html"
-                               class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Voiture -->
-            <!-- Voiture -->
-            <div class="col d-flex justify-content-center">
-                <div class="card m-3"
-                     style="width: 18rem">
-                    <img src="assets/images/Lamborghini Aventador.jpg"
-                         class="card-img-top"
-                         alt="Lamborghini Aventador" />
-                    <div class="card-body B-Grey">
-                        <h5 class="h2-h5 text-center">
-                            Lamborghini
-                        </h5>
-                        <h5 class="h2-h5 text-center">
-                            Aventador LP-700
-                        </h5>
-                        <p class="card-text Red1 h3-p">
-                            Année de construction
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            2011
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Motorisation
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            Essence
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Kilomètres rééls
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            21 542 kms
-                        </p>
-                        <hr />
-                        <div class="d-flex justify-content-between m-3">
-                            <p class="card-text price Black h3-p">
-                                Prix
+                            <p class="card-text Red1 h3-p">
+                                Motorisation
                             </p>
-                            <p class="card-text-Year price Black h3-p">
-                                18 745 €
+                            <p class="card-text-Year text-end Red1 h3-p">
+                                <?= $car["motorization"] ?>
                             </p>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="assets/html/vehicule_d_occasion_detaille.html"
-                               class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
+                            <p class="card-text Red1 h3-p">
+                                Kilomètres rééls
+                            </p>
+                            <p class="card-text-Year text-end Red1 h3-p">
+                                <?= $car["kilometers"] ?>
+                            </p>
+                            <hr />
+                            <div class="d-flex justify-content-between m-3">
+                                <p class="card-text price Black h3-p">
+                                    Prix
+                                </p>
+                                <p class="card-text-Year price Black h3-p">
+                                    <?= $car["price"] ?>
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="vehicule_d_occasion_detaille.php"
+                                   class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Fin Voiture -->
-            <!-- Voiture -->
-            <div class="col d-flex justify-content-center">
-                <div class="card m-3"
-                     style="width: 18rem">
-                    <img src="assets/images/Ford Raptor.jpg"
-                         class="card-img-top"
-                         alt="Ford Raptor" />
-                    <div class="card-body B-Grey">
-                        <h5 class="h2-h5 text-center">Ford</h5>
-                        <h5 class="h2-h5 text-center">
-                            F150 SVT-Raptor
-                        </h5>
-                        <p class="card-text Red1 h3-p">
-                            Année de construction
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            2015
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Motorisation
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            Essence
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Kilomètres rééls
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            38 952 kms
-                        </p>
-                        <hr />
-                        <div class="d-flex justify-content-between m-3">
-                            <p class="card-text price Black h3-p">
-                                Prix
-                            </p>
-                            <p class="card-text-Year price Black h3-p">
-                                45 971 €
-                            </p>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="assets/html/vehicule_d_occasion_detaille.html"
-                               class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Voiture -->
-            <!-- Voiture -->
-            <div class="col d-flex justify-content-center">
-                <div class="card m-3"
-                     style="width: 18rem">
-                    <img src="assets/images/Dodge Charger SRT.jpg"
-                         class="card-img-top"
-                         alt="Dodge Charger SRT" />
-                    <div class="card-body B-Grey">
-                        <h5 class="h2-h5 text-center">Dodge</h5>
-                        <h5 class="h2-h5 text-center">
-                            Charger SRT HellCat
-                        </h5>
-                        <p class="card-text Red1 h3-p">
-                            Année de construction
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            2020
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Motorisation
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            Hybride Rechargeable
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Kilomètres rééls
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            24 157 kms
-                        </p>
-                        <hr />
-                        <div class="d-flex justify-content-between m-3">
-                            <p class="card-text price Black h3-p">
-                                Prix
-                            </p>
-                            <p class="card-text-Year price Black h3-p">
-                                84 212 €
-                            </p>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="assets/html/vehicule_d_occasion_detaille.html"
-                               class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Voiture -->
-            <!-- Voiture -->
-            <div class="col d-flex justify-content-center">
-                <div class="card m-3"
-                     style="width: 18rem">
-                    <img src="assets/images/Mc Laren P1.jpg"
-                         class="card-img-top"
-                         alt="Mc Laren P1" />
-                    <div class="card-body B-Grey">
-                        <h5 class="h2-h5 text-center">Mc Laren</h5>
-                        <h5 class="h2-h5 text-center">P1</h5>
-                        <p class="card-text Red1 h3-p">
-                            Année de construction
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            2009
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Motorisation
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            Hybride Rechargeable
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Kilomètres rééls
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            18 987 kms
-                        </p>
-                        <hr />
-                        <div class="d-flex justify-content-between m-3">
-                            <p class="card-text price Black h3-p">
-                                Prix
-                            </p>
-                            <p class="card-text-Year price Black h3-p">
-                                54 328 €
-                            </p>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="assets/html/vehicule_d_occasion_detaille.html"
-                               class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Voiture -->
-            <!-- Voiture -->
-            <div class="col d-flex justify-content-center">
-                <div class="card m-3"
-                     style="width: 18rem">
-                    <img src="assets/images/Lamborghini Aventador.jpg"
-                         class="card-img-top"
-                         alt="Lamborghini Aventador" />
-                    <div class="card-body B-Grey">
-                        <h5 class="h2-h5 text-center">
-                            Lamborghini
-                        </h5>
-                        <h5 class="h2-h5 text-center">
-                            Aventador LP-700
-                        </h5>
-                        <p class="card-text Red1 h3-p">
-                            Année de construction
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            2011
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Motorisation
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            Essence
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Kilomètres rééls
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            21 542 kms
-                        </p>
-                        <hr />
-                        <div class="d-flex justify-content-between m-3">
-                            <p class="card-text price Black h3-p">
-                                Prix
-                            </p>
-                            <p class="card-text-Year price Black h3-p">
-                                18 745 €
-                            </p>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="assets/html/vehicule_d_occasion_detaille.html"
-                               class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Voiture -->
-            <!-- Voiture -->
-            <div class="col d-flex justify-content-center">
-                <div class="card m-3"
-                     style="width: 18rem">
-                    <img src="assets/images/Ford Raptor.jpg"
-                         class="card-img-top"
-                         alt="Ford Raptor" />
-                    <div class="card-body B-Grey">
-                        <h5 class="h2-h5 text-center">Ford</h5>
-                        <h5 class="h2-h5 text-center">
-                            F150 SVT-Raptor
-                        </h5>
-                        <p class="card-text Red1 h3-p">
-                            Année de construction
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            2015
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Motorisation
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            Essence
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Kilomètres rééls
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            38 952 kms
-                        </p>
-                        <hr />
-                        <div class="d-flex justify-content-between m-3">
-                            <p class="card-text price Black h3-p">
-                                Prix
-                            </p>
-                            <p class="card-text-Year price Black h3-p">
-                                45 971 €
-                            </p>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="assets/html/vehicule_d_occasion_detaille.html"
-                               class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Voiture -->
-            <!-- Voiture -->
-            <div class="col d-flex justify-content-center">
-                <div class="card m-3"
-                     style="width: 18rem">
-                    <img src="assets/images/Dodge Charger SRT.jpg"
-                         class="card-img-top"
-                         alt="Dodge Charger SRT" />
-                    <div class="card-body B-Grey">
-                        <h5 class="h2-h5 text-center">Dodge</h5>
-                        <h5 class="h2-h5 text-center">
-                            Charger SRT HellCat
-                        </h5>
-                        <p class="card-text Red1 h3-p">
-                            Année de construction
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            2020
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Motorisation
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            Hybride Rechargeable
-                        </p>
-                        <p class="card-text Red1 h3-p">
-                            Kilomètres rééls
-                        </p>
-                        <p class="card-text-Year text-end Red1 h3-p">
-                            24 157 kms
-                        </p>
-                        <hr />
-                        <div class="d-flex justify-content-between m-3">
-                            <p class="card-text price Black h3-p">
-                                Prix
-                            </p>
-                            <p class="card-text-Year price Black h3-p">
-                                84 212 €
-                            </p>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="assets/html/vehicule_d_occasion_detaille.html"
-                               class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
             <!-- Fin Voiture -->
         </div>
     </div>

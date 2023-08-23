@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/lib/cards.php";
 require_once __DIR__ . "/templates/header.php";
 ?>
 <!--
@@ -29,90 +30,22 @@ require_once __DIR__ . "/templates/header.php";
         -->
 <section class="Services p-3">
     <div class="row row-cols-1 row-cols-md-2 g-4 m-3">
-        <!-- Service Carrosserie 1 -->
-        <div class="ContentCard col d-flex justify-content-center p-3">
-            <div class="card B-Grey">
-                <div class="card-body">
-                    <h5 class="card-title h2 text-center text-uppercase p-2 B-Red1">
-                        Réparations
-                    </h5>
-                    <p class="card-text h3-p p-2">
-                        Contrary to popular belief, Lorem Ipsum is
-                        not simply random text. It has roots in a
-                        piece of classical Latin literature from 45
-                        BC, making it over 2000 years old. Richard
-                        McClintock, a Latin professor at
-                        Hampden-Sydney College in Virginia, looked
-                        up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage
-                    </p>
+        <!-- Card Service Carrosserie -->
+        <?php foreach ($cards_carrosserie as $key => $card_carrosserie) { ?>
+            <div class="ContentCard col d-flex justify-content-center p-3">
+                <div class="card B-Grey">
+                    <div class="card-body">
+                        <h5 class="card-title h2 text-center text-uppercase p-2 B-Red1">
+                            <?= $card_carrosserie["title"] ?>
+                        </h5>
+                        <p class="card-text h3-p p-2">
+                            <?= $card_carrosserie["content"] ?>
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Fin Service Carrosserie 1 -->
-        <!-- Service Carrosserie 2 -->
-        <div class="ContentCard col d-flex justify-content-center p-3">
-            <div class="card B-Grey">
-                <div class="card-body">
-                    <h5 class="card-title h2 text-center text-uppercase p-2 B-Red1">
-                        Redressement de la Carrosserie
-                    </h5>
-                    <p class="card-text h3-p p-2">
-                        Contrary to popular belief, Lorem Ipsum is
-                        not simply random text. It has roots in a
-                        piece of classical Latin literature from 45
-                        BC, making it over 2000 years old. Richard
-                        McClintock, a Latin professor at
-                        Hampden-Sydney College in Virginia, looked
-                        up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!-- Fin Service Carrosserie 2 -->
-        <!-- Service Carrosserie 3 -->
-        <div class="ContentCard col d-flex justify-content-center p-3">
-            <div class="card B-Grey">
-                <div class="card-body">
-                    <h5 class="card-title h2 text-center text-uppercase p-2 B-Red1">
-                        Covering
-                    </h5>
-                    <p class="card-text h3-p p-2">
-                        Contrary to popular belief, Lorem Ipsum is
-                        not simply random text. It has roots in a
-                        piece of classical Latin literature from 45
-                        BC, making it over 2000 years old. Richard
-                        McClintock, a Latin professor at
-                        Hampden-Sydney College in Virginia, looked
-                        up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!-- Fin Service Carrosserie 3 -->
-        <!-- Service Carrosserie 4 -->
-        <div class="ContentCard col d-flex justify-content-center p-3">
-            <div class="card B-Grey">
-                <div class="card-body">
-                    <h5 class="card-title h2 text-center text-uppercase p-2 B-Red1">
-                        Teintage des vitres
-                    </h5>
-                    <p class="card-text h3-p p-2">
-                        Contrary to popular belief, Lorem Ipsum is
-                        not simply random text. It has roots in a
-                        piece of classical Latin literature from 45
-                        BC, making it over 2000 years old. Richard
-                        McClintock, a Latin professor at
-                        Hampden-Sydney College in Virginia, looked
-                        up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!-- Fin Service Carrosserie 4 -->
+        <?php } ?>
+        <!-- Card Fin Service Carrosserie -->
     </div>
 </section>
 <!--

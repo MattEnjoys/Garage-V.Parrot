@@ -25,6 +25,12 @@ $mainMenu = [
         "head_title" => "Véhicules d'occasion | Garage V. Parrot",
         "meta_description" => "Garage V.Parrot, c'est également des véhicules d'occasion révisés, nettoyés et garantis deux ans."
     ],
+    "vehicule_d_occasion_detaille.php" => [
+        "menu_title" => "Véhicules d'occasion détaillé",
+        "head_title" => "Véhicules d'occasion détaillé| Garage V. Parrot",
+        "meta_description" => "Fiche technique du véhicule concerné.",
+        "exclude" => true
+    ],
     "contact.php" => [
         "menu_title" => "Contact",
         "head_title" => "Contact | Garage V. Parrot",
@@ -36,6 +42,32 @@ $mainMenu = [
         "meta_description" => "Espace dédiés aux professionnels."
     ],
 ];
+
+function getCurrentPageCSS()
+{
+    $currentPage = basename($_SERVER['PHP_SELF']);
+
+    // Définir une correspondance entre les noms de pages et les noms de fichiers CSS
+    $pageToCSS = [
+        'index.php' => 'style.css',
+        'carrosserie.php' => 'services.css',
+        'mecanique.php' => 'services.css',
+        'entretien.php' => 'services.css',
+        'vehicule_d_occasion.php' => 'vehicule_d_occasion.css',
+        'vehicule_d_occasion_detaille.php' => 'vehicule_d_occasion_detaille.css',
+        'contact.php' => 'contact.css',
+        'espace_pro.php' => 'espace_pro.css',
+    ];
+
+    // Vérifier si la page actuelle existe dans la correspondance, sinon utiliser un CSS par défaut
+    if (array_key_exists($currentPage, $pageToCSS)) {
+        return $pageToCSS[$currentPage];
+    } else {
+        return 'style.css';
+    }
+}
+
+$currentPageCSS = getCurrentPageCSS();
 $currentPage = basename($_SERVER["SCRIPT_NAME"]);
 ?>
 <!DOCTYPE html>
@@ -83,20 +115,12 @@ $currentPage = basename($_SERVER["SCRIPT_NAME"]);
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
           crossorigin="anonymous" />
     <!-- CSS -->
+
     <link rel="stylesheet"
           href="assets/css/reset.css" />
     <link rel="stylesheet"
-          href="assets/css/style.css" />
-    <link rel="stylesheet"
-          href="assets/css/vehicules_d_occasion.css" />
-    <link rel="stylesheet"
-          href="assets/css/vehicules_d_occasion_detaille.css" />
-    <link rel="stylesheet"
-          href="assets/css/contact.css" />
-    <link rel="stylesheet"
-          href="assets/css/espace_pro.css" />
-    <link rel="stylesheet"
-          href="assets/css/services.css" />
+          href="assets/css/<?= $currentPageCSS; ?>" />
+
     <title>
         <?= $mainMenu[$currentPage]["head_title"]; ?>
     </title>

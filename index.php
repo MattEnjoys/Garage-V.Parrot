@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/templates/header.php";
+$currentPageCSS = getCurrentPageCSS();
 ?>
 <!--
             ___________________________________________________________________________________________
