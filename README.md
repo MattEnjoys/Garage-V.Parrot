@@ -72,7 +72,7 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 
 >   <meta name="description" content="<?= $mainMenu[$currentPage]["meta_description"]; ?>">
 
-## Dynamiser les cars de vehicules_d_occasion
+## Dynamiser les cards de vehicules_d_occasion
 
 > Je crée les dossiers uploads et voitures pour y mettre les images de voitures.
 
@@ -101,112 +101,7 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 
 > Dans un premier temps, je crée le fichier cards.php dans lequel je marque en dur les données pour travailler avec un tableau.
 
-> $cards_carrosserie = [
-> [
->
-> > "title" => "Réparations",
-> > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots
-> > in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
-> > professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
-> > Lorem Ipsum passage"
-> > ],
-> > [
-> >
-> > > > "title" => "Redressement de la carrosserie",
-> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random
-> > > > text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
-> > > > McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-> > > > consectetur, from a Lorem Ipsum passage"
-> > > > ],
-> > > > [
-> > > >
-> > > > > > > > "title" => "Covering",
-> > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in
-> > > > > > > > a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
-> > > > > > > > at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
-> > > > > > > > passage"
-> > > > > > > > ],
-> > > > > > > > [
-> > > > > > > >
-> > > > > > > > > > > > > > > > "title" => "Teintage des vitres",
-> > > > > > > > > > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It
-> > > > > > > > > > > > > > > > has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
-> > > > > > > > > > > > > > > > Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
-> > > > > > > > > > > > > > > > a Lorem Ipsum passage"
-> > > > > > > > > > > > > > > > ],
-> > > > > > > > > > > > > > > > ];
->
-> $cards_entretien = [
-> [
->
-> > "title" => "Climatisation",
-> > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots
-> > in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
-> > professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
-> > Lorem Ipsum passage"
-> > ],
-> > [
-> >
-> > > > "title" => "Vidange",
-> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random
-> > > > text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
-> > > > McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-> > > > consectetur, from a Lorem Ipsum passage"
-> > > > ],
-> > > > [
-> > > >
-> > > > > > > > "title" => "Révision",
-> > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in
-> > > > > > > > a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
-> > > > > > > > at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
-> > > > > > > > passage"
-> > > > > > > > ],
-> > > > > > > > [
-> > > > > > > >
-> > > > > > > > > > > > > > > > "title" => "Changement des filtres",
-> > > > > > > > > > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It
-> > > > > > > > > > > > > > > > has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
-> > > > > > > > > > > > > > > > Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
-> > > > > > > > > > > > > > > > a Lorem Ipsum passage"
-> > > > > > > > > > > > > > > > ],
-> > > > > > > > > > > > > > > > ];
->
-> $cards_mecanique = [
-> [
->
-> > "title" => "Pneumatiques, parrallélisme et freinage",
-> > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots
-> > in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
-> > professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a
-> > Lorem Ipsum passage"
-> > ],
-> > [
-> >
-> > > > "title" => "Boîte de vitesse, distribution et embrayage",
-> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random
-> > > > text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
-> > > > McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-> > > > consectetur, from a Lorem Ipsum passage"
-> > > > ],
-> > > > [
-> > > >
-> > > > > > > > "title" => "Climatisation",
-> > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in
-> > > > > > > > a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor
-> > > > > > > > at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
-> > > > > > > > passage"
-> > > > > > > > ],
-> > > > > > > > [
-> > > > > > > >
-> > > > > > > > > > > > > > > > "title" => "Amortisseurs",
-> > > > > > > > > > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It
-> > > > > > > > > > > > > > > > has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
-> > > > > > > > > > > > > > > > Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
-> > > > > > > > > > > > > > > > a Lorem Ipsum passage"
-> > > > > > > > > > > > > > > > ],
-> > > > > > > > > > > > > > > > ];
-
-> Je vais un require_once **DIR** . "/lib/cards.php"; sur les fichiers carrosserie.php, mecanique.php et entretien.php.
+> Je fais un require_once **DIR** . "/lib/cards.php"; sur les fichiers carrosserie.php, mecanique.php et entretien.php.
 
 > Je réalise une boucle sur la card en fonction de la page:
 >
@@ -217,30 +112,9 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 > <?= $card_carrosserie["title"] ?>
 > <?= $card_carrosserie["content"] ?>
 
-## Dynamiser les cars de services de index.php
+## Dynamiser les cards de services de index.php
 
 > Je récupere les infos en dur de la section et je les mets dans un fichier services.php:
-
-> $services = [
-> [
->
-> > "title" => "Carrosserie",
-> > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at",
-> > "image" => "Carrosserie.jpg"
-> > ],
-> > [
-> >
-> > > > "title" => "Mécanique",
-> > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at",
-> > > > "image" => "Mécanique.jpg"
-> > > > ],
-> > > > [
-> > > >
-> > > > > > > > "title" => "Entretien",
-> > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at",
-> > > > > > > > "image" => "Entretien.jpg"
-> > > > > > > > ],
-> > > > > > > > ];
 
 > Je crée service_part.php ou je met la structure de la card que j'appelle en require dans la section services de index.php pour boucler sur les cards de index.php.
 
@@ -248,22 +122,26 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 
 > Je récupere les infos en dur de la section et je les mets dans un fichier customers.php:
 
-$customers = [
-[
-"fistname" => "John",
-"lastname" => "Doe",
-"content" => "Ceci est le premier commentaire marqué en dur."
-],
-[
-"fistname" => "Jane",
-"lastname" => "Doe",
-"content" => "Ceci est le deuxième commentaire marqué en dur."
-],
-[
-"fistname" => "Lorem",
-"lastname" => "Ipsum",
-"content" => "Ceci est le troisième commentaire marqué en dur."
-]
-];
-
 > Je crée customer_part.php ou je met la structure de la card que j'appelle en require dans la section services de index.php pour boucler sur les cards de index.php.
+
+## Dynamiser la page vehicule_d_occasion_detaille.php
+
+> Afin de pointer sur la bonne fiche technique de véhicule, je modifie la page pour la rendre dynamique:
+
+> Je me sert du tableau de car.php et je passe un parametre d'URL en HTTP;
+> On parlera d'index en tableau et de id dans la BDD.
+> J"ajoute "?", le nom de notre paramètre "test", et = "10 (par exemple)" et on va devoir GET le parametre.
+
+> <?php var_dump($_GET); ?> donnera array(1) { ["test"]=> string(2) "10" }
+>
+> GET est donc un tableau associatif clé(test) / valeur(10)
+
+> <?php var_dump($_GET["test"]); ?> donnera string(2) "10"
+
+> si on met en parametre d'URL ?id=1, et d'après mon tableau de car.php:
+
+> <?php var_dump($cars); ?> donnera grace au require_once __DIR__ . "/lib/car.php"; array(5) { [0]=> array(7) { ["title"]=> string(8) "Mc Laren" ["model"]=> string(2) "P1" ["year"]=> string(4) "2009" ["motorization"]=> string(20) "Hybride Rechargeable" ["kilometers"]=> string(10) "18 987 kms" ["price"]=> string(10) "13 842 €" ["image"]=> string(15) "Mc Laren P1.jpg" } [1]=> array(7) { ["title"]=> string(20) "Laborghini Aventador" ["model"]=> string(6) "LP-700" ["year"]=> string(4) "2011" ["motorization"]=> string(7) "Essence" ["kilometers"]=> string(10) "21 542 kms" ["price"]=> string(10) "13 842 €" ["image"]=> string(25) "Lamborghini Aventador.jpg" } [2]=> array(7) { ["title"]=> string(4) "Ford" ["model"]=> string(15) "F150 SVT-Raptor" ["year"]=> string(4) "2015" ["motorization"]=> string(7) "Essence" ["kilometers"]=> string(10) "38 952 kms" ["price"]=> string(10) "13 842 €" ["image"]=> string(15) "Ford Raptor.jpg" } [3]=> array(7) { ["title"]=> string(5) "Dodge" ["model"]=> string(19) "Charger SRT HellCat" ["year"]=> string(4) "2020" ["motorization"]=> string(20) "Hybride Rechargeable" ["kilometers"]=> string(10) "24 157 kms" ["price"]=> string(10) "13 842 €" ["image"]=> string(21) "Dodge Charger SRT.jpg" } [4]=> array(7) { ["title"]=> string(4) "Ford" ["model"]=> string(7) "Mustang" ["year"]=> string(4) "2020" ["motorization"]=> string(7) "Essence" ["kilometers"]=> string(10) "19 354 kms" ["price"]=> string(10) "37 416 €" ["image"]=> string(16) "Ford Mustang.jpg" } }
+
+> <?php var_dump($car); ?> donnera le contenu du tableau d'index 1 array(7) { ["title"]=> string(20) "Laborghini Aventador" ["model"]=> string(6) "LP-700" ["year"]=> string(4) "2011" ["motorization"]=> string(7) "Essence" ["kilometers"]=> string(10) "21 542 kms" ["price"]=> string(10) "13 842 €" ["image"]=> string(25) "Lamborghini Aventador.jpg" }
+
+> Maintenant que j'ai les données, je remplace les données brut par le code PHP adéquat.

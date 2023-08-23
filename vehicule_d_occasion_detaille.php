@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__ . "/lib/car.php";
+$id = $_GET["id"];
+// Va chercher dans le tableau "car" l'id correspondant.
+$car = $cars[$id];
+
 require_once __DIR__ . "/templates/header.php";
 ?>
 <!--
@@ -14,19 +18,19 @@ require_once __DIR__ . "/templates/header.php";
              class="carousel slide mb-3">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="assets/images/Lamborghini Aventador.jpg"
+                    <img src="uploads/voitures/<?= $car["image"] ?>"
                          class="d-block ImgCar"
-                         alt="Lamborghini Aventador" />
+                         alt="<?= $car["title"] ?>" />
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/images/Lamborghini Aventador.jpg"
+                    <img src="uploads/voitures/<?= $car["image"] ?>"
                          class="d-block ImgCar"
-                         alt="Lamborghini Aventador" />
+                         alt="<?= $car["title"] ?>" />
                 </div>
                 <div class="carousel-item">
-                    <img src="assets/images/Lamborghini Aventador.jpg"
+                    <img src="uploads/voitures/<?= $car["image"] ?>"
                          class="d-block ImgCar"
-                         alt="Lamborghini Aventador" />
+                         alt="<?= $car["title"] ?>" />
                 </div>
             </div>
             <button class="carousel-control-prev"
@@ -51,29 +55,24 @@ require_once __DIR__ . "/templates/header.php";
         <div class="col-lg-6">
             <div class="d-flex flex-column align-items-center">
                 <h3 class="display-5 fw-bold text-body-emphasis text-center h1 Black lh-1 mb-3">
-                    Lamborghini
+                    <?= $car["title"] ?>
                 </h3>
                 <h3 class="display-5 fw-bold text-body-emphasis text-center h1 Black lh-1 mb-3">
-                    Aventador LP-700-4
+                    <?= $car["model"] ?>
                 </h3>
             </div>
             <p class="lead h2-h5 Grey">
-                Quickly design and customize responsive mobile-first
-                sites with Bootstrap, the world’s most popular
-                front-end open source toolkit, featuring Sass
-                variables and mixins, responsive grid system,
-                extensive prebuilt components, and powerful
-                JavaScript plugins.
+                <?= $car["content"] ?>
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <a href="assets/html/contact.html"
+                <a href="contact.php"
                    class="btn btn-order btn-lg px-4 me-md-2 h2-h5 Black m-3">
                     Nous contacter
                 </a>
             </div>
             <div class="col-lg-12 price">
                 <h3 class="display-5 fw-bold text-body-emphasis h1 Black lh-1 m-3 text-end">
-                    18 745 €
+                    <?= $car["price"] ?>
                 </h3>
             </div>
         </div>
@@ -92,20 +91,26 @@ require_once __DIR__ . "/templates/header.php";
                 <tbody class="table-group-divider">
                     <tr>
                         <th class="h3-p"
-                            scope="row">Anné :</th>
-                        <td class="h3-p">2011</td>
+                            scope="row">Année :</th>
+                        <td class="h3-p">
+                            <?= $car["year"] ?>
+                        </td>
                     </tr>
                     <tr>
                         <th class="h3-p"
                             scope="row">Energie :</th>
-                        <td class="h3-p">Essence</td>
+                        <td class="h3-p">
+                            <?= $car["motorization"] ?>
+                        </td>
                     </tr>
                     <tr>
                         <th class="h3-p"
                             scope="row">
                             Kilométrage :
                         </th>
-                        <td class="h3-p">21 542 kms</td>
+                        <td class="h3-p">
+                            <?= $car["kilometers"] ?>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -124,19 +129,25 @@ require_once __DIR__ . "/templates/header.php";
                     <tr>
                         <th class="option h3-p"
                             scope="row">
-                            Option 1
+                            <?= $car["option1"] ?>
                         </th>
                     </tr>
                     <tr>
                         <th class="option h3-p"
                             scope="row">
-                            Option 2
+                            <?= $car["option2"] ?>
                         </th>
                     </tr>
                     <tr>
                         <th class="option h3-p"
                             scope="row">
-                            Equipement 1
+                            <?= $car["equipement1"] ?>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="option h3-p"
+                            scope="row">
+                            <?= $car["equipement2"] ?>
                         </th>
                     </tr>
                 </tbody>

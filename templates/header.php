@@ -204,4 +204,4 @@ $currentPage = basename($_SERVER["SCRIPT_NAME"]);
                                                     MAIN
             ___________________________________________________________________________________________
         -->
-    <main class="">
+    <main class="B-Pink">
