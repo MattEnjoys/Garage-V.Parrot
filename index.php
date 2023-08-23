@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/lib/services.php";
+require_once __DIR__ . "/lib/customers.php";
 require_once __DIR__ . "/templates/header.php";
 $currentPageCSS = getCurrentPageCSS();
 ?>
@@ -195,63 +196,11 @@ $currentPageCSS = getCurrentPageCSS();
             </h5>
         </div>
         <div class="CardCustomers">
-            <!-- Avis 1 -->
-            <div class="card m-3">
-                <div class="card-body m-2">
-                    <h5 class="card-title1 Red1 h3-p">John</h5>
-                    <h6 class="card-subtitle Pink h3-p mb-2">
-                        Doe
-                    </h6>
-                    <p class="card-text Red2 h3-p">
-                        Ceci est le premier commentaire marqué en
-                        dur sur le site de V. Parrot
-                    </p>
-                    <div>
-                        <h5 class="card-title1 text-center h3-p Black">
-                            5/5
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Avis 1 -->
-            <!-- Avis 2 -->
-            <div class="card m-3">
-                <div class="card-body m-2">
-                    <h5 class="card-title1 Red1 h3-p">John</h5>
-                    <h6 class="card-subtitle Pink h3-p mb-2">
-                        Doe
-                    </h6>
-                    <p class="card-text Red2 h3-p">
-                        Ceci est le deuxième commentaire marqué en
-                        dur sur le site de V. Parrot
-                    </p>
-                    <div>
-                        <h5 class="card-title1 text-center h3-p Black">
-                            5/5
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Avis 2 -->
-            <!-- Avis 3 -->
-            <div class="card m-3">
-                <div class="card-body m-2">
-                    <h5 class="card-title1 Red1 h3-p">John</h5>
-                    <h6 class="card-subtitle Pink h3-p mb-2">
-                        Doe
-                    </h6>
-                    <p class="card-text Red2 h3-p">
-                        Ceci est le troisième commentaire marqué en
-                        dur sur le site de V. Parrot
-                    </p>
-                    <div>
-                        <h5 class="card-title1 text-center h3-p Black">
-                            5/5
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Avis 3 -->
+            <!-- Avis -->
+            <?php foreach ($customers as $key => $customer) {
+                require __DIR__ . "/templates/customer_part.php";
+            } ?>
+            <!-- Fin Avis -->
         </div>
     </div>
     <!-- Fin Avis clients -->

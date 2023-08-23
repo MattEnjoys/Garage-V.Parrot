@@ -219,7 +219,7 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 
 ## Dynamiser les cars de services de index.php
 
-> je récupere les infos en dur de la section et je les mets dans un fichier services.php:
+> Je récupere les infos en dur de la section et je les mets dans un fichier services.php:
 
 > $services = [
 > [
@@ -235,12 +235,35 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 > > > > "image" => "Mécanique.jpg"
 > > > > ],
 > > > > [
+> > > >
 > > > > > > > > "title" => "Entretien",
 > > > > > > > > "content" => "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at",
 > > > > > > > > "image" => "Entretien.jpg"
 > > > > > > > > ],
-> > > > ];
+> > > > > > > > ];
 
 > Je crée service_part.php ou je met la structure de la card que j'appelle en require dans la section services de index.php pour boucler sur les cards de index.php.
 
 ## Dynamiser les avis clients de index.php
+
+> Je récupere les infos en dur de la section et je les mets dans un fichier customers.php:
+
+$customers = [
+[
+"fistname" => "John",
+"lastname" => "Doe",
+"content" => "Ceci est le premier commentaire marqué en dur."
+],
+[
+"fistname" => "Jane",
+"lastname" => "Doe",
+"content" => "Ceci est le deuxième commentaire marqué en dur."
+],
+[
+"fistname" => "Lorem",
+"lastname" => "Ipsum",
+"content" => "Ceci est le troisième commentaire marqué en dur."
+]
+];
+
+> Je crée customer_part.php ou je met la structure de la card que j'appelle en require dans la section services de index.php pour boucler sur les cards de index.php.
