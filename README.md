@@ -208,4 +208,6 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 > <?= $card_carrosserie["title"] ?>
 > <?= $card_carrosserie["content"] ?>
 
+## Dynamiser les cars de services de index.php
 
+Je procède au même schéma que précédemment.

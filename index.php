@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/lib/services.php";
 require_once __DIR__ . "/templates/header.php";
 $currentPageCSS = getCurrentPageCSS();
 ?>
@@ -59,17 +60,17 @@ $currentPageCSS = getCurrentPageCSS();
                  data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="assets/images/Dodge Charger SRT.jpg"
+                        <img src="uploads/voitures/Dodge Charger SRT.jpg"
                              class="d-block w-100"
                              alt="Dodge Charger SRT" />
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/images/Ford Raptor.jpg"
+                        <img src="uploads/voitures/Ford Raptor.jpg"
                              class="d-block w-100"
                              alt="Ford Raptor" />
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/images/Lamborghini Aventador.jpg"
+                        <img src="uploads/voitures/Lamborghini Aventador.jpg"
                              class="d-block w-100"
                              alt="Lamborghini Aventador" />
                     </div>
@@ -113,95 +114,10 @@ $currentPageCSS = getCurrentPageCSS();
         </h1>
         <div class="d-flex flex-column justify-content-center align-items-center">
             <!-- Service 1 -->
-            <div class="card m-3 border-0">
-                <div class="row g-0">
-                    <div class="col-md-6 ImgService d-flex justify-content-center align-items-center">
-                        <img src="assets/images/Carrosserie.jpg"
-                             class="img-fluid rounded"
-                             alt="Service Carrosserie" />
-                    </div>
-                    <div class="col-md-6 d-flex flex-column justify-content-between">
-                        <div class="TextService card-body d-flex flex-column justify-content-between">
-                            <h5 class="card-titleService h2-h5 text-uppercase font-italic text-center">
-                                Carrosserie
-                            </h5>
-                            <p class="card-textService h2-h5 p-2 text-justify">
-                                Contrary to popular belief, Lorem
-                                Ipsum is not simply random text. It
-                                has roots in a piece of classical
-                                Latin literature from 45 BC, making
-                                it over 2000 years old. Richard
-                                McClintock, a Latin professor at
-                            </p>
-                            <p class="card-text1 text-end">
-                                <small><a href="assets/html/carrosserie.html"
-                                       class="text-body-index fw-bold h2 Black">En savoir plus</a></small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php foreach ($services as $key => $service) {
+                require __DIR__ . "/templates/service_part.php";
+            } ?>
             <!-- Fin Service 1 -->
-            <!-- Service 2 -->
-            <div class="CardCenter card m-3 border-0">
-                <div class="row g-0">
-                    <div class="col-md-6 ImgService d-flex justify-content-center align-items-center">
-                        <img src="assets/images/Mécanique.jpg"
-                             class="img-fluid rounded"
-                             alt="Service Mécanique" />
-                    </div>
-                    <div class="col-md-6 d-flex flex-column justify-content-between">
-                        <div class="TextService card-body d-flex flex-column justify-content-between">
-                            <h5 class="card-titleService h2-h5 text-uppercase font-italic text-center">
-                                Mécanique
-                            </h5>
-                            <p class="card-textService h2-h5 p-2 text-justify">
-                                Contrary to popular belief, Lorem
-                                Ipsum is not simply random text. It
-                                has roots in a piece of classical
-                                Latin literature from 45 BC, making
-                                it over 2000 years old. Richard
-                                McClintock, a Latin professor at
-                            </p>
-                            <p class="card-text1 text-end">
-                                <small><a href="assets/html/mecanique.html"
-                                       class="text-body-index fw-bold h2 Black">En savoir plus</a></small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Service 2 -->
-            <!-- Service 3 -->
-            <div class="card m-3 border-0">
-                <div class="row g-0">
-                    <div class="ImgService d-flex justify-content-center align-items-center col-md-6">
-                        <img src="assets/images/Entretien.jpg"
-                             class="img-fluid rounded"
-                             alt="Service Entretien" />
-                    </div>
-                    <div class="col-md-6 d-flex flex-column justify-content-between">
-                        <div class="TextService card-body d-flex flex-column justify-content-between">
-                            <h5 class="card-titleService h2-h5 text-uppercase font-italic text-center">
-                                Entretien
-                            </h5>
-                            <p class="card-textService h2-h5 p-2 text-justify">
-                                Contrary to popular belief, Lorem
-                                Ipsum is not simply random text. It
-                                has roots in a piece of classical
-                                Latin literature from 45 BC, making
-                                it over 2000 years old. Richard
-                                McClintock, a Latin professor at
-                            </p>
-                            <p class="card-text1 text-end">
-                                <small><a href="assets/html/entretien.html"
-                                       class="text-body-index fw-bold h2 Black">En savoir plus</a></small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fin Service 3 -->
         </div>
     </div>
 </section>
