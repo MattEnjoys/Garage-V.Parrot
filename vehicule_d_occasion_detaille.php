@@ -4,6 +4,15 @@ $id = $_GET["id"];
 // Va chercher dans le tableau "car" l'id correspondant.
 $car = $cars[$id];
 
+require_once __DIR__ . "/lib/menu.php";
+
+$mainMenu["vehicule_d_occasion_detaille.php"] = [
+    // Concaténation de title et model
+    "head_title" => $car["title"] . " " . $car["model"],
+    "meta_description" => $car["content"],
+    "exclude" => true
+];
+
 require_once __DIR__ . "/templates/header.php";
 ?>
 <!--

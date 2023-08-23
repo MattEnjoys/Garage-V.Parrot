@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . "/lib/services.php";
 require_once __DIR__ . "/lib/customers.php";
+require_once __DIR__ . "/lib/menu.php";
 require_once __DIR__ . "/templates/header.php";
 $currentPageCSS = getCurrentPageCSS();
 ?>

@@ -145,3 +145,8 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 > <?php var_dump($car); ?> donnera le contenu du tableau d'index 1 array(7) { ["title"]=> string(20) "Laborghini Aventador" ["model"]=> string(6) "LP-700" ["year"]=> string(4) "2011" ["motorization"]=> string(7) "Essence" ["kilometers"]=> string(10) "21 542 kms" ["price"]=> string(10) "13 842 €" ["image"]=> string(25) "Lamborghini Aventador.jpg" }
 
 > Maintenant que j'ai les données, je remplace les données brut par le code PHP adéquat.
+
+## Modification du menu
+
+> Afin de pouvoir changer les metadonnées de vehicule_d_occasion_detaille.php, je décide de mettre mon menu dans un fichier a part menu.php.
+> Cela dissocie donc le menu du header. Il faudra par la suite inclure menu.php AVANT header.php.
