@@ -39,7 +39,7 @@
                 </p>
             </div>
             <div class="d-flex justify-content-center">
-                <a href="vehicule_d_occasion_detaille.php"
+                <a href="vehicule_d_occasion_detaille.php?id=<?= $key ?>"
                    class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
             </div>
         </div>
