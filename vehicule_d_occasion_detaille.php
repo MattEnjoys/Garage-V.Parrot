@@ -9,7 +9,7 @@ require_once __DIR__ . "/lib/menu.php";
 $mainMenu["vehicule_d_occasion_detaille.php"] = [
     // Concaténation de title et model
     "head_title" => $car["title"] . " " . $car["model"],
-    "meta_description" => $car["content"],
+    "meta_description" => substr($car["content"], 0, 100),
     "exclude" => true
 ];
 

@@ -150,3 +150,4 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 
 > Afin de pouvoir changer les metadonnées de vehicule_d_occasion_detaille.php, je décide de mettre mon menu dans un fichier a part menu.php.
 > Cela dissocie donc le menu du header. Il faudra par la suite inclure menu.php AVANT header.php.
+> Je passe le parametre substr à la meta_description pour couper a 100 caractères.
