@@ -8,7 +8,7 @@ require_once __DIR__ . "/lib/menu.php";
 
 $mainMenu["vehicule_d_occasion_detaille.php"] = [
     // Concaténation de title et model
-    "head_title" => $car["title"] . " " . $car["model"],
+    "head_title" => $car["marque"] . " " . $car["model"],
     "meta_description" => substr($car["content"], 0, 100),
     "exclude" => true
 ];
@@ -64,7 +64,7 @@ require_once __DIR__ . "/templates/header.php";
         <div class="col-lg-6">
             <div class="d-flex flex-column align-items-center">
                 <h3 class="display-5 fw-bold text-body-emphasis text-center h1 Black lh-1 mb-3">
-                    <?= $car["title"] ?>
+                    <?= $car["marque"] ?>
                 </h3>
                 <h3 class="display-5 fw-bold text-body-emphasis text-center h1 Black lh-1 mb-3">
                     <?= $car["model"] ?>

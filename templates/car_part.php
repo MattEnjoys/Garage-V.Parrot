@@ -3,10 +3,10 @@
          style="width: 18rem">
         <img src="uploads/voitures/<?= $car["image"] ?>"
              class="card-img-top"
-             alt="<?= $car["title"] ?>" />
+             alt="<?= $car["marque"] ?>" />
         <div class="card-body B-Grey">
             <h5 class="h2-h5 text-center">
-                <?= $car["title"] ?>
+                <?= $car["marque"] ?>
             </h5>
             <h5 class="h2-h5 text-center">
                 <?= $car["model"] ?>

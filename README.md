@@ -158,3 +158,7 @@ Voir screen d'erreur "Lier le bouton a la page de détail"
 
 > On récupère la donnée en GET, donc dans l'URL, mais cette dernière est vide,
 > Dans la page vehicules_d_occasion.php, le liens vers la fiche technique <a href="vehicule_d_occasion_detaille.php>"> deviens donc <a href="vehicule_d_occasion_detaille.php?id=<? $key ?>"> afin de récupérer l'id à chaque appel.
+
+## Mise en place de la BDD
+
+> Je crée à la main mon fichier v.parrot.sql
