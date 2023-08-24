@@ -162,3 +162,4 @@ Voir screen d'erreur "Lier le bouton a la page de détail"
 ## Mise en place de la BDD
 
 > Je crée à la main mon fichier v.parrot.sql
+> Je crée pdo.php pour lier ma BDD a mon site.
