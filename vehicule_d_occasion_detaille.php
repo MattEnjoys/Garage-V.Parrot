@@ -1,19 +1,25 @@
 <?php
+require_once __DIR__ . "/lib/config.php";
+require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/car.php";
-$id = $_GET["id"];
-// Va chercher dans le tableau "car" l'id correspondant.
-$car = $cars[$id];
-
 require_once __DIR__ . "/lib/menu.php";
-
-$mainMenu["vehicule_d_occasion_detaille.php"] = [
-    // Concaténation de title et model
-    "head_title" => $car["marque"] . " " . $car["model"],
-    "meta_description" => substr($car["content"], 0, 100),
-    "exclude" => true
-];
-
 require_once __DIR__ . "/templates/header.php";
+
+$query = $pdo->prepare("
+    SELECT *
+    FROM equipements_options AS eo
+    JOIN modeles AS mdl ON eo.Id_modele = mdl.Id
+    JOIN marque AS m ON mdl.Id_marque = m.Id
+    JOIN voitures AS v ON m.Id_modele = v.Id_marque
+    JOIN photos AS p ON v.Id = p.Id_voiture
+    JOIN annonce AS a ON v.Id = a.Id_voiture
+");
+
+$query->execute();
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
+
+// Maintenant, $result contient les résultats des jointures des différentes tables
+
 ?>
 <!--
             ___________________________________________________________________________________________
@@ -27,19 +33,19 @@ require_once __DIR__ . "/templates/header.php";
              class="carousel slide mb-3">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="uploads/voitures/<?= $car["image"] ?>"
+                    <img src="uploads/voitures/<?= htmlentities($voiture['photo']) ?>"
                          class="d-block ImgCar"
-                         alt="<?= $car["title"] ?>" />
+                         alt="<?= htmlentities($car["title"]) ?>" />
                 </div>
                 <div class="carousel-item">
-                    <img src="uploads/voitures/<?= $car["image"] ?>"
+                    <img src="uploads/voitures/<?= htmlentities($voiture['photo']) ?>"
                          class="d-block ImgCar"
-                         alt="<?= $car["title"] ?>" />
+                         alt="<?= htmlentities($car["title"]) ?>" />
                 </div>
                 <div class="carousel-item">
-                    <img src="uploads/voitures/<?= $car["image"] ?>"
+                    <img src="uploads/voitures/<?= htmlentities($voiture['photo']) ?>"
                          class="d-block ImgCar"
-                         alt="<?= $car["title"] ?>" />
+                         alt="<?= htmlentities($voiture['marque_nom']) ?>" />
                 </div>
             </div>
             <button class="carousel-control-prev"
@@ -64,14 +70,14 @@ require_once __DIR__ . "/templates/header.php";
         <div class="col-lg-6">
             <div class="d-flex flex-column align-items-center">
                 <h3 class="display-5 fw-bold text-body-emphasis text-center h1 Black lh-1 mb-3">
-                    <?= $car["marque"] ?>
+                    <?= htmlentities($voiture['marque_nom']) ?>
                 </h3>
                 <h3 class="display-5 fw-bold text-body-emphasis text-center h1 Black lh-1 mb-3">
-                    <?= $car["model"] ?>
+                    <?= htmlentities($voiture['modele_nom']) ?>
                 </h3>
             </div>
             <p class="lead h2-h5 Grey">
-                <?= $car["content"] ?>
+                <?= htmlentities($annnonces["content"]) ?>
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                 <a href="contact.php"
@@ -81,7 +87,7 @@ require_once __DIR__ . "/templates/header.php";
             </div>
             <div class="col-lg-12 price">
                 <h3 class="display-5 fw-bold text-body-emphasis h1 Black lh-1 m-3 text-end">
-                    <?= $car["price"] ?>
+                    <?= htmlentities($voiture['prix']) ?>
                 </h3>
             </div>
         </div>
@@ -102,14 +108,14 @@ require_once __DIR__ . "/templates/header.php";
                         <th class="h3-p"
                             scope="row">Année :</th>
                         <td class="h3-p">
-                            <?= $car["year"] ?>
+                            <?= htmlentities($voiture['annee']) ?>
                         </td>
                     </tr>
                     <tr>
                         <th class="h3-p"
                             scope="row">Energie :</th>
                         <td class="h3-p">
-                            <?= $car["motorization"] ?>
+                            <?= htmlentities($voiture['modele_cylindre']) ?>
                         </td>
                     </tr>
                     <tr>
@@ -118,7 +124,16 @@ require_once __DIR__ . "/templates/header.php";
                             Kilométrage :
                         </th>
                         <td class="h3-p">
-                            <?= $car["kilometers"] ?>
+                            <?= htmlentities($voiture['kilometrage']) ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="h3-p"
+                            scope="row">
+                            Transmission :
+                        </th>
+                        <td class="h3-p">
+                            <?= htmlentities($equipements_options['transmission']) ?>
                         </td>
                     </tr>
                 </tbody>
@@ -138,25 +153,25 @@ require_once __DIR__ . "/templates/header.php";
                     <tr>
                         <th class="option h3-p"
                             scope="row">
-                            <?= $car["option1"] ?>
+                            <?= htmlentities($equipements_options["nom"]) ?>
                         </th>
                     </tr>
                     <tr>
                         <th class="option h3-p"
                             scope="row">
-                            <?= $car["option2"] ?>
+                            <?= $equipements_options["nom"] ?>
                         </th>
                     </tr>
                     <tr>
                         <th class="option h3-p"
                             scope="row">
-                            <?= $car["equipement1"] ?>
+                            <?= htmlentities($equipements_options["nom"]) ?>
                         </th>
                     </tr>
                     <tr>
                         <th class="option h3-p"
                             scope="row">
-                            <?= $car["equipement2"] ?>
+                            <?= htmlentities($equipements_options["nom"]) ?>
                         </th>
                     </tr>
                 </tbody>

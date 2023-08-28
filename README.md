@@ -154,7 +154,7 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 
 ## Rendre fonctionnel le bouton "fiche technique"
 
-Voir screen d'erreur "Lier le bouton a la page de détail"
+> Voir screen d'erreur "Lier le bouton a la page de détail"
 
 > On récupère la donnée en GET, donc dans l'URL, mais cette dernière est vide,
 > Dans la page vehicules_d_occasion.php, le liens vers la fiche technique <a href="vehicule_d_occasion_detaille.php>"> deviens donc <a href="vehicule_d_occasion_detaille.php?id=<? $key ?>"> afin de récupérer l'id à chaque appel.
@@ -162,4 +162,36 @@ Voir screen d'erreur "Lier le bouton a la page de détail"
 ## Mise en place de la BDD
 
 > Je crée à la main mon fichier v.parrot.sql
-> Je crée pdo.php pour lier ma BDD a mon site.
+> Je crée pdo.php pour lier ma BDD à mon site.
+> Je crée config.php pour y mettre la configuration de connexion de la BDD dans des constantes.
+> J'appelle le fichier dans les pages correspondantes.
+> Afin de vérifier la bonne connexion à la BDD, je réalise cette requette SQL:
+
+> $query = $pdo->prepare("
+> SELECT m._, v._, mo.\*
+> FROM marque m
+> JOIN modeles mo ON m.Id_modele = mo.Id
+> JOIN voitures v ON m.Id = v.Id_marque
+> ");
+
+> $query->execute();
+> $result = $query->fetchAll(PDO::FETCH_ASSOC);
+> var_dump($result);
+> ?>
+
+> Cela me donne: 0 € - 300 000 € array(5) { [0]=> array(10) { ["Id"]=> int(1) ["nom"]=> string(7) "Mansory" ["Id_modele"]=> int(1) ["kilometrage"]=> int(16) ["annee"]=> string(10) "0000-00-00" ["prix"]=> string(6) "129.00" ["photo"]=> string(19) "McLaren Mansory.jpg" ["Id_marque"]=> int(1) ["cylindre"]=> int(8) ["chevaux"]=> int(950) } [1]=> array(10) { ["Id"]=> int(2) ["nom"]=> string(16) "Aventador LP-700" ["Id_modele"]=> int(2) ["kilometrage"]=> int(21) ["annee"]=> string(10) "0000-00-00" ["prix"]=> string(5) "13.00" ["photo"]=> string(25) "Lamborghini Aventador.jpg" ["Id_marque"]=> int(2) ["cylindre"]=> int(10) ["chevaux"]=> int(700) } [2]=> array(10) { ["Id"]=> int(3) ["nom"]=> string(15) "F150 SVT-Raptor" ["Id_modele"]=> int(3) ["kilometrage"]=> int(38) ["annee"]=> string(10) "0000-00-00" ["prix"]=> string(5) "13.00" ["photo"]=> string(15) "Ford Raptor.jpg" ["Id_marque"]=> int(3) ["cylindre"]=> int(12) ["chevaux"]=> int(420) } [3]=> array(10) { ["Id"]=> int(4) ["nom"]=> string(19) "Charger SRT HellCat" ["Id_modele"]=> int(4) ["kilometrage"]=> int(24) ["annee"]=> string(10) "0000-00-00" ["prix"]=> string(5) "13.00" ["photo"]=> string(21) "Dodge Charger SRT.jpg" ["Id_marque"]=> int(4) ["cylindre"]=> int(5) ["chevaux"]=> int(717) } [4]=> array(10) { ["Id"]=> int(5) ["nom"]=> string(9) "LaFerrari" ["Id_modele"]=> int(5) ["kilometrage"]=> int(19) ["annee"]=> string(10) "0000-00-00" ["prix"]=> string(5) "37.00" ["photo"]=> string(21) "Ferrari Laferrari.jpg" ["Id_marque"]=> int(5) ["cylindre"]=> int(12) ["chevaux"]=> int(800) } }
+
+> Voir screen Première requete SQL.png
+> Je réadapte mon code pour récupérer les bonnes données, ainsi que la boucle foreach dans mon template de vehicule_d_occasion.php pour afficher les resultats.
+> Je met la fonction de cette boucle dans la page car.php. en typant le parametre de la fonction
+
+> Depuis vehicules_d_occasion.php, <?php var_dump($cars) ?> donne array(5) { [0]=> array(8) { ["voiture_id"]=> int(1) ["kilometrage"]=> int(16) ["annee"]=> string(10) "0000-00-00" ["prix"]=> string(6) "129.00" ["photo"]=> string(19) "McLaren Mansory.jpg" ["marque_nom"]=> string(8) "Mc Laren" ["modele_nom"]=> string(7) "Mansory" ["modele_cylindre"]=> int(8) } [1]=> array(8) { ["voiture_id"]=> int(2) ["kilometrage"]=> int(21) ["annee"]=> string(10) "0000-00-00" ["prix"]=> string(5) "13.00" ["photo"]=> string(25) "Lamborghini Aventador.jpg" ["marque_nom"]=> string(11) "Lamborghini" ["modele_nom"]=> string(16) "Aventador LP-700" ["modele_cylindre"]=> int(10) } [2]=> array(8) { ["voiture_id"]=> int(3) ["kilometrage"]=> int(38) ["annee"]=> string(10) "0000-00-00" ["prix"]=> string(5) "13.00" ["photo"]=> string(15) "Ford Raptor.jpg" ["marque_nom"]=> string(4) "Ford" ["modele_nom"]=> string(15) "F150 SVT-Raptor" ["modele_cylindre"]=> int(12) } [3]=> array(8) { ["voiture_id"]=> int(4) ["kilometrage"]=> int(24) ["annee"]=> string(10) "0000-00-00" ["prix"]=> string(5) "13.00" ["photo"]=> string(21) "Dodge Charger SRT.jpg" ["marque_nom"]=> string(5) "Dodge" ["modele_nom"]=> string(19) "Charger SRT HellCat" ["modele_cylindre"]=> int(5) } [4]=> array(8) { ["voiture_id"]=> int(5) ["kilometrage"]=> int(19) ["annee"]=> string(10) "0000-00-00" ["prix"]=> string(5) "37.00" ["photo"]=> string(21) "Ferrari Laferrari.jpg" ["marque_nom"]=> string(7) "Ferrari" ["modele_nom"]=> string(9) "LaFerrari" ["modele_cylindre"]=> int(12) } }
+> Donc le type de la fonction est un array.
+
+## Sécurité du code
+
+> Afin d'éviter les failles XSS, je passe le parametre htmlentities à chaque fois que je fais un appel en BDD dans mon PHP.
+
+## Image par défaut
+
+> Afin d'afficher une image de véhicule tout le temps, je réalise une condition dans vehicule_d_occasion.php. Ce qui permet par la meme occasion de changer le chemin absolut des images par le nom de ma variable imagePath.

@@ -116,9 +116,11 @@ CREATE TABLE annonces (
    titre VARCHAR(50),
    date_publication DATETIME,
    Id_voiture INT NOT NULL,
+   content TEXT,
    UNIQUE (Id_voiture),
    FOREIGN KEY (Id_voiture) REFERENCES voitures(Id)
 );
+
 
 CREATE TABLE annonces_publiees (
    Id_utilisateur INT,
@@ -168,11 +170,11 @@ INSERT INTO voitures (Id, kilometrage, annee, prix, photo, Id_marque) VALUES
 (5, '19 354', '2020', '37 416 €', 'Ferrari Laferrari.jpg', 5);
 
 INSERT INTO photos (Id, nom, photo, Id_1) VALUES
-(1, 'Image McLaren', 'McLaren Mansory.jpg', 1),
-(2, 'Image Lamborghini', 'Lamborghini Aventador.jpg', 2),
-(3, 'Image Ford', 'Ford Raptor.jpg', 3),
-(4, 'Image Dodge', 'Dodge Charger SRT.jpg', 4),
-(5, 'Image Ferrari', 'Ferrari Laferrari.jpg', 5);
+(1, 'Image McLaren', NULL, 1),
+(2, 'Image Lamborghini', NULL, 2),
+(3, 'Image Ford', NULL, 3),
+(4, 'Image Dodge', NULL, 4),
+(5, 'Image Ferrari', NULL, 5);
 
 INSERT INTO possede (Id, Id_1) VALUES
 (1, 1),
@@ -186,9 +188,9 @@ INSERT INTO utilisateurs (Id_message, Id_role, nom, prenom, email, mot_de_passe)
 (2, 2, 'Nom2', 'Prénom2', 'email2@example.com', 'motdepasse2'),
 (3, 3, 'Nom3', 'Prénom3', 'email3@example.com', 'motdepasse3');
 
-INSERT INTO annonces (Id, titre, date_publication, Id_voiture) VALUES
-(1,'Mc Laren', '2023-08-24 10:00:00', 1),
-(2,'Lamborghini', '2023-08-24 10:00:00', 2),
-(3,'Ford', '2023-08-24 10:00:00', 3),
-(4,'Dodge', '2023-08-24 10:00:00', 4),
-(5,'Ferrari', '2023-08-24 10:00:00', 5);
+INSERT INTO annonces (Id, titre, date_publication, Id_voiture,content) VALUES
+(1,'Mc Laren', '2023-08-24 10:00:00', 1, 'annonce 1'),
+(2,'Lamborghini', '2023-08-24 10:00:00', 2, 'annonce 2'),
+(3,'Ford', '2023-08-24 10:00:00', 3, 'annonce 3'),
+(4,'Dodge', '2023-08-24 10:00:00', 4, 'annonce 4'),
+(5,'Ferrari', '2023-08-24 10:00:00', 5, 'annonce 5');

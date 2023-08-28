@@ -1,6 +1,6 @@
 /*
 -------------------------------------------------------------------------------------
-                                        MAIN
+                                        SECTION TEXT ET FILTRE
 -------------------------------------------------------------------------------------
 */
 
@@ -54,10 +54,8 @@
 .DivContainer {
     width: auto;
 }
+
 /* VOITURES */
-.container {
-    width: 100%;
-}
 .card-img-top {
     height: 200px;
     /* Pour que l'image couvre toute la zone tout en maintenant son ratio */

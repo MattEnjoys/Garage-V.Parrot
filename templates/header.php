@@ -1,10 +1,8 @@
 <?php
-function getCurrentPageCSS()
+function generateCSSLink($page)
 {
-    $currentPage = basename($_SERVER['PHP_SELF']);
-
-    // Définir une correspondance entre les noms de pages et les noms de fichiers CSS
-    $pageToCSS = [
+    $cssFiles = array(
+        'reset.css',
         'index.php' => 'style.css',
         'carrosserie.php' => 'services.css',
         'mecanique.php' => 'services.css',
@@ -12,18 +10,17 @@ function getCurrentPageCSS()
         'vehicule_d_occasion.php' => 'vehicule_d_occasion.css',
         'vehicule_d_occasion_detaille.php' => 'vehicule_d_occasion_detaille.css',
         'contact.php' => 'contact.css',
-        'espace_pro.php' => 'espace_pro.css',
-    ];
+        'espace_pro.php' => 'espace_pro.css'
+    );
 
-    // Vérifier si la page actuelle existe dans la correspondance, sinon utiliser un CSS par défaut
-    if (array_key_exists($currentPage, $pageToCSS)) {
-        return $pageToCSS[$currentPage];
-    } else {
-        return 'style.css';
-    }
+    $defaultCSS = 'reset.css';
+
+    $selectedCSS = $cssFiles[$page] ?? $defaultCSS;
+
+    return '<link rel="stylesheet" type="text/css" href="' . $selectedCSS . '">';
 }
-
-$currentPageCSS = getCurrentPageCSS();
+$currentPage = basename($_SERVER['PHP_SELF']);
+echo generateCSSLink($currentPage);
 $currentPage = basename($_SERVER["SCRIPT_NAME"]);
 ?>
 <!DOCTYPE html>

@@ -1,7 +1,11 @@
 <?php
+require_once __DIR__ . "/lib/config.php";
+require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/car.php";
 require_once __DIR__ . "/lib/menu.php";
 require_once __DIR__ . "/templates/header.php";
+
+$cars = getCars($pdo);
 ?>
 <!--
             ___________________________________________________________________________________________
@@ -88,11 +92,55 @@ require_once __DIR__ . "/templates/header.php";
 <section class="Cars d-flex flex-column justify-content-center align-items-center B-Pink">
     <div class="DivContainer">
         <div id="filteredCarsContainer"
-             class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
+             class="g-4">
             <!-- Voiture -->
-            <?php foreach ($cars as $key => $car) {
-                require __DIR__ . "/templates/car_part.php";
-            } ?>
+            <div class="col d-flex justify-content-center">
+                <?php foreach ($cars as $voiture) {
+                    if ($voiture["photo"] === null) {
+                        $imagePath = "assets/images/Car_Default.jpg";
+                    } else {
+                        $imagePath = "uploads/voitures/" . htmlentities($voiture["photo"]);
+                    }
+                    ?>
+                    <div class="card m-3"
+                         style="width: 18rem;">
+                        <img src="<?= $imagePath ?>"
+                             class="card-img-top"
+                             alt="<?= htmlentities($voiture['marque_nom']) ?>" />
+                        <div class="card-body B-Grey">
+                            <h5 class="h2-h5 text-center">
+                                <?= htmlentities($voiture['marque_nom']) ?>
+                            </h5>
+                            <h5 class="h2-h5 text-center">
+                                <?= htmlentities($voiture['modele_nom']) ?>
+                            </h5>
+                            <p class="card-text Red1 h3-p">Année de construction</p>
+                            <p class="card-text-Year text-end Red1 h3-p">
+                                <?= htmlentities($voiture['annee']) ?>
+                            </p>
+                            <p class="card-text Red1 h3-p">Motorisation</p>
+                            <p class="card-text-Year text-end Red1 h3-p">
+                                <?= htmlentities($voiture['modele_cylindre']) ?>
+                            </p>
+                            <p class="card-text Red1 h3-p">Kilomètres rééls</p>
+                            <p class="card-text-Year text-end Red1 h3-p">
+                                <?= htmlentities($voiture['kilometrage']) ?>
+                            </p>
+                            <hr />
+                            <div class="d-flex justify-content-between m-3">
+                                <p class="card-text price Black h3-p">Prix</p>
+                                <p class="card-text-Year price Black h3-p">
+                                    <?= htmlentities($voiture['prix']) ?>
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a href="vehicule_d_occasion_detaille.php?id=<?= htmlentities($voiture['voiture_id']) ?>"
+                                   class="btn btn-order h2-h5 Black text-center">Fiche technique</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
             <!-- Fin Voiture -->
         </div>
     </div>

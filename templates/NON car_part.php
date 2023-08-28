@@ -1,33 +1,33 @@
 <div class="col d-flex justify-content-center">
     <div class="card m-3"
          style="width: 18rem">
-        <img src="uploads/voitures/<?= $car["image"] ?>"
+        <img src="uploads/voitures/<?= $voitures["photo"] ?>"
              class="card-img-top"
-             alt="<?= $car["marque"] ?>" />
+             alt="<?= $marque["nom"] ?>" />
         <div class="card-body B-Grey">
             <h5 class="h2-h5 text-center">
-                <?= $car["marque"] ?>
+                <?= $marque["nom"] ?>
             </h5>
             <h5 class="h2-h5 text-center">
-                <?= $car["model"] ?>
+                <?= $modeles["nom"] ?>
             </h5>
             <p class="card-text Red1 h3-p">
                 Année de construction
             </p>
             <p class="card-text-Year text-end Red1 h3-p">
-                <?= $car["year"] ?>
+                <?= $voitures["annee"] ?>
             </p>
             <p class="card-text Red1 h3-p">
                 Motorisation
             </p>
             <p class="card-text-Year text-end Red1 h3-p">
-                <?= $car["motorization"] ?>
+                <?= $modeles["cylindre"] ?>
             </p>
             <p class="card-text Red1 h3-p">
                 Kilomètres rééls
             </p>
             <p class="card-text-Year text-end Red1 h3-p">
-                <?= $car["kilometers"] ?>
+                <?= $voitures["kilometrage"] ?>
             </p>
             <hr />
             <div class="d-flex justify-content-between m-3">
@@ -35,7 +35,7 @@
                     Prix
                 </p>
                 <p class="card-text-Year price Black h3-p">
-                    <?= $car["price"] ?>
+                    <?= $voitures["prix"] ?>
                 </p>
             </div>
             <div class="d-flex justify-content-center">
