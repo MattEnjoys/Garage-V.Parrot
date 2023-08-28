@@ -97,16 +97,18 @@ $cars = getCars($pdo);
             <div class="col d-flex justify-content-center">
                 <?php foreach ($cars as $voiture) {
                     if ($voiture["photo"] === null) {
-                        $imagePath = "assets/images/Car_Default.jpg";
+                        $imagePath = _ASSETS_IMAGES_FOLDER_ . "Car_Default.jpg";
+                        $altText = "Pas d'image à cette annonce.";
                     } else {
-                        $imagePath = "uploads/voitures/" . htmlentities($voiture["photo"]);
+                        $imagePath = _CARS_IMAGES_FOLDER_ . htmlentities($voiture["photo"]);
+                        $altText = htmlentities($voiture['marque_nom']) . " " . htmlentities($voiture['modele_nom']);
                     }
                     ?>
                     <div class="card m-3"
                          style="width: 18rem;">
                         <img src="<?= $imagePath ?>"
                              class="card-img-top"
-                             alt="<?= htmlentities($voiture['marque_nom']) ?>" />
+                             alt="<?= $altText ?>" />
                         <div class="card-body B-Grey">
                             <h5 class="h2-h5 text-center">
                                 <?= htmlentities($voiture['marque_nom']) ?>

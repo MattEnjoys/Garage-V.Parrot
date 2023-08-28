@@ -100,6 +100,8 @@ CREATE TABLE services (
    Id INT AUTO_INCREMENT PRIMARY KEY,
    nom VARCHAR(50),
    Id_utilisateur INT NOT NULL,
+   content TEXT,
+   photo VARCHAR(255),
    FOREIGN KEY (Id_utilisateur) REFERENCES utilisateurs(Id)
 );
 
@@ -194,3 +196,8 @@ INSERT INTO annonces (Id, titre, date_publication, Id_voiture,content) VALUES
 (3,'Ford', '2023-08-24 10:00:00', 3, 'annonce 3'),
 (4,'Dodge', '2023-08-24 10:00:00', 4, 'annonce 4'),
 (5,'Ferrari', '2023-08-24 10:00:00', 5, 'annonce 5');
+
+INSERT INTO services (Id, nom, Id_utilisateur,content,photo) VALUES
+(1,'Carrosserie', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Carrosserie.jpg'),
+(2,'Mécanique', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Mécanique.jpg'),
+(3,'Entretien', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Entretien.jpg');

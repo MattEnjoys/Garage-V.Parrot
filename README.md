@@ -194,4 +194,10 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 
 ## Image par défaut
 
-> Afin d'afficher une image de véhicule tout le temps, je réalise une condition dans vehicule_d_occasion.php. Ce qui permet par la meme occasion de changer le chemin absolut des images par le nom de ma variable imagePath.
+> Afin d'afficher une image de véhicule tout le temps, je réalise une condition dans vehicule_d_occasion.php. Ce qui permet par la meme occasion de changer le chemin absolut des images par le nom de ma variable imagePath et d'y mettre le alt concerné.
+
+> Je met par la suite imagePath dans config.php, dans des constantes pour centraliser le chemin d'accès.
+
+## Optimisation de la page Index
+
+> Je commence par lier les cards des services proposés à la BDD, puis je fais une boucle foreach.

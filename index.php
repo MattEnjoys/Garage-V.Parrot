@@ -1,11 +1,12 @@
 <?php
 require_once __DIR__ . "/lib/config.php";
 require_once __DIR__ . "/lib/pdo.php";
-require_once __DIR__ . "/lib/services.php";
+require_once __DIR__ . "/lib/car.php";
 require_once __DIR__ . "/lib/customers.php";
 require_once __DIR__ . "/lib/menu.php";
 require_once __DIR__ . "/templates/header.php";
 
+$services = getServices($pdo);
 ?>
 <!--
             ___________________________________________________________________________________________
@@ -118,9 +119,39 @@ require_once __DIR__ . "/templates/header.php";
         </h1>
         <div class="d-flex flex-column justify-content-center align-items-center">
             <!-- Service -->
-            <?php foreach ($services as $key => $service) {
-                require __DIR__ . "/templates/service_part.php";
-            } ?>
+            <div class="card m-3 border-0 p-3">
+                <?php foreach ($services as $key => $services) {
+                    if ($services["photo"] === null) {
+                        $imagePath = _ASSETS_IMAGES_FOLDER_ . "Services_Default.jpg";
+                        $altText = "Pas d'image à ce service.";
+                    } else {
+                        $imagePath = _ASSETS_IMAGES_FOLDER_ . htmlentities($services["photo"]);
+                        $altText = htmlentities($services['nom']);
+                    }
+                    ?>
+                    <div class="row g-0">
+                        <div class="col-md-6 ImgService d-flex justify-content-center align-items-center p-3">
+                            <img src="<?= $imagePath ?>"
+                                 class="img-fluid rounded"
+                                 alt="<?= $altText ?>" />
+                        </div>
+                        <div class="col-md-6 d-flex flex-column justify-content-between">
+                            <div class="TextService card-body d-flex flex-column justify-content-between">
+                                <h5 class="card-titleService h2-h5 text-uppercase font-italic text-center">
+                                    <?= htmlentities($services["nom"]) ?>
+                                </h5>
+                                <p class="card-textService h2-h5 p-2 text-justify">
+                                    <?= htmlentities($services["content"]) ?>
+                                </p>
+                                <p class="card-text1 text-end">
+                                    <small><a href="assets/html/carrosserie.html"
+                                           class="text-body-index fw-bold h2 Black">En savoir plus</a></small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
             <!-- Fin Service -->
         </div>
     </div>

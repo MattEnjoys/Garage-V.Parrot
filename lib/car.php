@@ -98,7 +98,28 @@
 //     ]
 // ];
 
-// Fonction pour récupérer les infos pour une Cards dans vehicules_d_occasion.php. qui retourne un array ( donc un tableau associatif ou indexé ex: id voiture, kilometrage, ...) et false si quelque chose ne se passe pas correctement lors de l'execution de la requete. (Si la requete échoue, la fonction renvoie false pour indiquer qu'il y a un problème.).
+// Fonction pour récupérer les images des voitures
+function getImages(PDO $pdo): array
+{
+    $query = $pdo->prepare("SELECT * FROM voitures ORDER BY Id DESC LIMIT 3");
+    $query->execute();
+    $voitures = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return $voitures;
+}
+
+// Fonction pour récupérer les infos completes de services
+function getServices(PDO $pdo): array
+{
+    $query = $pdo->prepare("SELECT * FROM services");
+    $query->execute();
+    $services = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return $services;
+}
+
+// Fonction pour récupérer les infos pour une Cards dans vehicules_d_occasion.php.
+// Fonction qui retourne un array ( donc un tableau associatif ou indexé ex: id voiture, kilometrage, ...) et false si quelque chose ne se passe pas correctement lors de l'execution de la requete. (Si la requete échoue, la fonction renvoie false pour indiquer qu'il y a un problème.).
 // Cela indique ke type de données attendus en résultat et les eventuelles valeurs qui pouraient avoir un problème. Cela améliore la lisibilité du code.
 function getCars(PDO $pdo): array|false
 {

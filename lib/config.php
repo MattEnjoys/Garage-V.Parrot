@@ -25,7 +25,7 @@ define("_DB_PASSWORD_", "");
 /**
  * Constante définissant le chemin du dossier d'images d'assets.
  */
-// define("_ASSETS_IMAGES_FOLDER_", "assets/images/");
+define("_ASSETS_IMAGES_FOLDER_", "assets/images/");
 
 /**
  * Constante définissant le chemin du dossier d'images pour les articles.
@@ -35,7 +35,7 @@ define("_DB_PASSWORD_", "");
 /**
  * Constante définissant le chemin du dossier d'images pour les articles.
  */
-// define("_ARTICLES_IMAGES_FOLDER_", "uploads/articles/");
+define("_CARS_IMAGES_FOLDER_", "uploads/voitures/");
 
 /**
  * Constante définissant la limite d'articles affichés sur la page d'accueil.
