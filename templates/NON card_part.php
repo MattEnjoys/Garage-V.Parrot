@@ -1,6 +1,3 @@
-<?php
-// require_once __DIR__ . "/lib/cards.php";
-?>
 <div class="CardCustomers">
     <div class="ContentCard col d-flex justify-content-center p-3">
         <div class="card B-Grey">

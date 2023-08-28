@@ -98,17 +98,21 @@
 //     ]
 // ];
 
-// Fonction pour récupérer les images des voitures
+// index.php - Récupérer les images des voitures
+// Fonction qui retourne un array
 function getImages(PDO $pdo): array
 {
-    $query = $pdo->prepare("SELECT * FROM voitures ORDER BY Id DESC LIMIT 3");
+    // Récupere la colonne photo uniquement
+    $query = $pdo->prepare("SELECT photo FROM voitures ORDER BY Id DESC LIMIT 3");
     $query->execute();
-    $voitures = $query->fetchAll(PDO::FETCH_ASSOC);
+    // FETCH_COLUMN pour extraire directement les valeurs de la colonne "photo" sous forme d'un tableau, éliminant ainsi la nécessité d'utiliser PDO::FETCH_ASSOC.
+    $photos = $query->fetchAll(PDO::FETCH_COLUMN);
 
-    return $voitures;
+    return $photos;
 }
 
-// Fonction pour récupérer les infos completes de services
+// index.php Récupérer les infos complètes des services proposés
+// Fonction qui retourne un array
 function getServices(PDO $pdo): array
 {
     $query = $pdo->prepare("SELECT * FROM services");
@@ -118,7 +122,20 @@ function getServices(PDO $pdo): array
     return $services;
 }
 
-// Fonction pour récupérer les infos pour une Cards dans vehicules_d_occasion.php.
+// index.php - Récupérer les trois derniers avis clients
+// Fonction qui retourne un array
+function getCustomers(PDO $pdo): array
+{
+    // Récupere la colonne photo uniquement
+    $query = $pdo->prepare("SELECT * FROM avis ORDER BY Id DESC LIMIT 3");
+    $query->execute();
+    // FETCH_COLUMN pour extraire directement les valeurs de la colonne "photo" sous forme d'un tableau, éliminant ainsi la nécessité d'utiliser PDO::FETCH_ASSOC.
+    $customers = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return $customers;
+}
+
+// vehicules_d_occasion.php - Récupérer les infos pour une card de voiture
 // Fonction qui retourne un array ( donc un tableau associatif ou indexé ex: id voiture, kilometrage, ...) et false si quelque chose ne se passe pas correctement lors de l'execution de la requete. (Si la requete échoue, la fonction renvoie false pour indiquer qu'il y a un problème.).
 // Cela indique ke type de données attendus en résultat et les eventuelles valeurs qui pouraient avoir un problème. Cela améliore la lisibilité du code.
 function getCars(PDO $pdo): array|false

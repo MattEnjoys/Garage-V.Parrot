@@ -6,13 +6,20 @@ require_once __DIR__ . "/lib/customers.php";
 require_once __DIR__ . "/lib/menu.php";
 require_once __DIR__ . "/templates/header.php";
 
+$photos = getImages($pdo);
 $services = getServices($pdo);
+$customers = getCustomers($pdo);
 ?>
 <!--
             ___________________________________________________________________________________________
                                                     SECTION BANNIERE
             ___________________________________________________________________________________________
         -->
+<!-- LINKS A REPRENDRE DANS UNE FONCTION -->
+<link rel="stylesheet"
+      href="assets/css/reset.css">
+<link rel="stylesheet"
+      href="assets/css/style.css">
 <section class="ImgBannerTop">
     <!-- Image -->
     <div class="ImgBanner ImgWelcome d-flex justify-content-center align-items-center mb-5">
@@ -52,7 +59,7 @@ $services = getServices($pdo);
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                 <div class="d-flex justify-content-center">
-                    <a href="assets/html/vehicules_d_occasion.html"
+                    <a href="/PHP/Passage en PHP/Garage-V.Parrot/vehicules_d_occasion.php"
                        class="btn btn-order h2-h5 Black text-center">Tous nos véhicules d'occasion</a>
                 </div>
             </div>
@@ -64,21 +71,9 @@ $services = getServices($pdo);
                  class="carousel slide w-100"
                  data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="uploads/voitures/Dodge Charger SRT.jpg"
-                             class="d-block w-100"
-                             alt="Dodge Charger SRT" />
-                    </div>
-                    <div class="carousel-item">
-                        <img src="uploads/voitures/Ford Raptor.jpg"
-                             class="d-block w-100"
-                             alt="Ford Raptor" />
-                    </div>
-                    <div class="carousel-item">
-                        <img src="uploads/voitures/Lamborghini Aventador.jpg"
-                             class="d-block w-100"
-                             alt="Lamborghini Aventador" />
-                    </div>
+                    <?php foreach ($photos as $key => $photo) {
+                        require __DIR__ . "/templates/carousel_part.php";
+                    } ?>
                 </div>
                 <button class="carousel-control-prev"
                         type="button"
@@ -119,38 +114,11 @@ $services = getServices($pdo);
         </h1>
         <div class="d-flex flex-column justify-content-center align-items-center">
             <!-- Service -->
-            <div class="card m-3 border-0 p-3">
-                <?php foreach ($services as $key => $services) {
-                    if ($services["photo"] === null) {
-                        $imagePath = _ASSETS_IMAGES_FOLDER_ . "Services_Default.jpg";
-                        $altText = "Pas d'image à ce service.";
-                    } else {
-                        $imagePath = _ASSETS_IMAGES_FOLDER_ . htmlentities($services["photo"]);
-                        $altText = htmlentities($services['nom']);
-                    }
-                    ?>
-                    <div class="row g-0">
-                        <div class="col-md-6 ImgService d-flex justify-content-center align-items-center p-3">
-                            <img src="<?= $imagePath ?>"
-                                 class="img-fluid rounded"
-                                 alt="<?= $altText ?>" />
-                        </div>
-                        <div class="col-md-6 d-flex flex-column justify-content-between">
-                            <div class="TextService card-body d-flex flex-column justify-content-between">
-                                <h5 class="card-titleService h2-h5 text-uppercase font-italic text-center">
-                                    <?= htmlentities($services["nom"]) ?>
-                                </h5>
-                                <p class="card-textService h2-h5 p-2 text-justify">
-                                    <?= htmlentities($services["content"]) ?>
-                                </p>
-                                <p class="card-text1 text-end">
-                                    <small><a href="assets/html/carrosserie.html"
-                                           class="text-body-index fw-bold h2 Black">En savoir plus</a></small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                <?php } ?>
+
+            <div class="card m-3 border-0">
+                <?php foreach ($services as $key => $service) {
+                    require __DIR__ . "/templates/service_part.php";
+                } ?>
             </div>
             <!-- Fin Service -->
         </div>
@@ -163,7 +131,7 @@ $services = getServices($pdo);
         -->
 <!--
             ___________________________________________________________________________________________
-                                                    SECTION AVIS
+            SECTION AVIS
             ___________________________________________________________________________________________
         -->
 <section class="CustomersReviews">
@@ -231,7 +199,7 @@ $services = getServices($pdo);
         </div>
         <div class="CardCustomers">
             <!-- Avis -->
-            <?php foreach ($customers as $key => $customer) {
+            <?php foreach ($customers as $key => $avis) {
                 require __DIR__ . "/templates/customer_part.php";
             } ?>
             <!-- Fin Avis -->

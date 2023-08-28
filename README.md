@@ -200,4 +200,8 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 
 ## Optimisation de la page Index
 
-> Je commence par lier les cards des services proposés à la BDD, puis je fais une boucle foreach.
+> Je m'occupe du carousel pour le rendre dynamique en récupérant les 3 dernières images rentrées en BDD et les afficher dans un template appellé carousel_part.php.
+
+> Pour les services proposé, je récupère intégralement le contenu de la BDD, et je l'affiche dans une boucle foreach.
+
+> Pour les avis clients, même procédé.

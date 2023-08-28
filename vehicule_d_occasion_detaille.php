@@ -5,18 +5,18 @@ require_once __DIR__ . "/lib/car.php";
 require_once __DIR__ . "/lib/menu.php";
 require_once __DIR__ . "/templates/header.php";
 
-$query = $pdo->prepare("
-    SELECT *
-    FROM equipements_options AS eo
-    JOIN modeles AS mdl ON eo.Id_modele = mdl.Id
-    JOIN marque AS m ON mdl.Id_marque = m.Id
-    JOIN voitures AS v ON m.Id_modele = v.Id_marque
-    JOIN photos AS p ON v.Id = p.Id_voiture
-    JOIN annonce AS a ON v.Id = a.Id_voiture
-");
+// $query = $pdo->prepare("
+//     SELECT *
+//     FROM equipements_options AS eo
+//     JOIN modeles AS mdl ON eo.Id_modele = mdl.Id
+//     JOIN marque AS m ON mdl.Id_marque = m.Id
+//     JOIN voitures AS v ON m.Id_modele = v.Id_marque
+//     JOIN photos AS p ON v.Id = p.Id_voiture
+// //     JOIN annonce AS a ON v.Id = a.Id_voiture
+// // ");
 
-$query->execute();
-$result = $query->fetchAll(PDO::FETCH_ASSOC);
+// $query->execute();
+// $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 // Maintenant, $result contient les résultats des jointures des différentes tables
 

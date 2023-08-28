@@ -201,3 +201,8 @@ INSERT INTO services (Id, nom, Id_utilisateur,content,photo) VALUES
 (1,'Carrosserie', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Carrosserie.jpg'),
 (2,'Mécanique', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Mécanique.jpg'),
 (3,'Entretien', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Entretien.jpg');
+
+INSERT INTO avis (nom_client, prenom_client, commentaire, note, valider) VALUES
+('Dupont', 'Alice', 'Excellent service, très satisfait !', 5, true),
+('Martin', 'Julien', 'Bonne expérience, quelques points à améliorer.', 3, true),
+('Leclerc', 'Sophie', 'Mauvais service, déçu par la qualité.', 1, true);
