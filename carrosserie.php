@@ -1,7 +1,13 @@
 <?php
-require_once __DIR__ . "/lib/cards.php";
+require_once __DIR__ . "/lib/config.php";
+require_once __DIR__ . "/lib/pdo.php";
+// require_once __DIR__ . "/lib/cards.php";
+require_once __DIR__ . "/lib/car.php";
 require_once __DIR__ . "/lib/menu.php";
 require_once __DIR__ . "/templates/header.php";
+
+$carrosseries = getCarrosserie($pdo);
+
 ?>
 <!--
             ___________________________________________________________________________________________
@@ -32,15 +38,15 @@ require_once __DIR__ . "/templates/header.php";
 <section class="Services p-3">
     <div class="row row-cols-1 row-cols-md-2 g-4 m-3">
         <!-- Card Service Carrosserie -->
-        <?php foreach ($cards_carrosserie as $key => $card_carrosserie) { ?>
+        <?php foreach ($carrosseries as $key => $services_carrosserie) { ?>
             <div class="ContentCard col d-flex justify-content-center p-3">
                 <div class="card B-Grey">
                     <div class="card-body">
                         <h5 class="card-title h2 text-center text-uppercase p-2 B-Red1">
-                            <?= $card_carrosserie["title"] ?>
+                            <?= $services_carrosserie["nom"] ?>
                         </h5>
                         <p class="card-text h3-p p-2">
-                            <?= $card_carrosserie["content"] ?>
+                            <?= $services_carrosserie["content"] ?>
                         </p>
                     </div>
                 </div>

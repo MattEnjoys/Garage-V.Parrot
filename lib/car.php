@@ -135,6 +135,33 @@ function getCustomers(PDO $pdo): array
     return $customers;
 }
 
+// carrosserie.php, mecanique.php et Entretien.php - Récupérer les infos complètes des services proposés
+// Fonction qui retourne un array
+function getCarrosserie(PDO $pdo): array
+{
+    $query = $pdo->prepare("SELECT * FROM services_carrosserie");
+    $query->execute();
+    $services_carrosserie = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return $services_carrosserie;
+}
+function getMecanique(PDO $pdo): array
+{
+    $query = $pdo->prepare("SELECT * FROM services_carrosserie");
+    $query->execute();
+    $services_carrosserie = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return $services_carrosserie;
+}
+function getEntretien(PDO $pdo): array
+{
+    $query = $pdo->prepare("SELECT * FROM services_carrosserie");
+    $query->execute();
+    $services_carrosserie = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return $services_carrosserie;
+}
+
 // vehicules_d_occasion.php - Récupérer les infos pour une card de voiture
 // Fonction qui retourne un array ( donc un tableau associatif ou indexé ex: id voiture, kilometrage, ...) et false si quelque chose ne se passe pas correctement lors de l'execution de la requete. (Si la requete échoue, la fonction renvoie false pour indiquer qu'il y a un problème.).
 // Cela indique ke type de données attendus en résultat et les eventuelles valeurs qui pouraient avoir un problème. Cela améliore la lisibilité du code.

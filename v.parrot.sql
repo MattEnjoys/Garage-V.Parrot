@@ -105,6 +105,30 @@ CREATE TABLE services (
    FOREIGN KEY (Id_utilisateur) REFERENCES utilisateurs(Id)
 );
 
+CREATE TABLE services_carrosserie (
+   Id INT AUTO_INCREMENT PRIMARY KEY,
+   nom VARCHAR(50),
+   Id_utilisateur INT NOT NULL,
+   content TEXT,
+   FOREIGN KEY (Id_utilisateur) REFERENCES utilisateurs(Id)
+);
+
+CREATE TABLE services_mecanique (
+   Id INT AUTO_INCREMENT PRIMARY KEY,
+   nom VARCHAR(50),
+   Id_utilisateur INT NOT NULL,
+   content TEXT,
+   FOREIGN KEY (Id_utilisateur) REFERENCES utilisateurs(Id)
+);
+
+CREATE TABLE services_entretien (
+   Id INT AUTO_INCREMENT PRIMARY KEY,
+   nom VARCHAR(50),
+   Id_utilisateur INT NOT NULL,
+   content TEXT,
+   FOREIGN KEY (Id_utilisateur) REFERENCES utilisateurs(Id)
+);
+
 CREATE TABLE avis_valider (
    Id_utilisateur INT,
    Id_avis INT,
@@ -197,10 +221,28 @@ INSERT INTO annonces (Id, titre, date_publication, Id_voiture,content) VALUES
 (4,'Dodge', '2023-08-24 10:00:00', 4, 'annonce 4'),
 (5,'Ferrari', '2023-08-24 10:00:00', 5, 'annonce 5');
 
-INSERT INTO services (Id, nom, Id_utilisateur,content,photo) VALUES
-(1,'Carrosserie', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Carrosserie.jpg'),
-(2,'Mécanique', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Mécanique.jpg'),
-(3,'Entretien', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Entretien.jpg');
+INSERT INTO services (Id, nom, Id_utilisateur,content, photo) VALUES
+(1,'Réparations', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Carrosserie.jpg'),
+(2,'Redressement de la carrosserie', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Mécanique.jpg'),
+(3,'Covering', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at','Entretien.jpg');
+
+INSERT INTO services_carrosserie (Id, nom, Id_utilisateur,content) VALUES
+(1,'Réparations', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at'),
+(2,'Redressement de la carrosserie', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at'),
+(3,'Covering', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at'),
+(4,'Teintage des vitres', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at');
+
+INSERT INTO services_mecanique (Id, nom, Id_utilisateur,content) VALUES
+(1,'Pneumatiques, Paralélisme, freinage', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at'),
+(2,'Boîte de vitesse, distribution et embrayage', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at'),
+(3,'Climatisation', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at'),
+(4,'Amortisseurs', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at');
+
+INSERT INTO services_entretien (Id, nom, Id_utilisateur,content) VALUES
+(1,'Climatisation', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at'),
+(2,'Vidange', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at'),
+(3,'Révision', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at'),
+(4,'Changement des filtres', 1,'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at');
 
 INSERT INTO avis (nom_client, prenom_client, commentaire, note, valider) VALUES
 ('Dupont', 'Alice', 'Excellent service, très satisfait !', 5, true),
