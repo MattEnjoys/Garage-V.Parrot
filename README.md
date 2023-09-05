@@ -205,3 +205,19 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 > Pour les services proposé, je récupère intégralement le contenu de la BDD, et je l'affiche dans une boucle foreach.
 
 > Pour les avis clients, même procédé.
+
+## Optimisation des pages de services
+
+> Je récupère tout le contenu des tables concernés pour afficher les cards des pages de services dans carrosserie.php, mecanique.pho et entretien.php.
+
+## Création de la patie admin
+
+> Création d'un interface Administrateur,avec un dossier admin, et les templates associés.
+
+> On met le formulaire de contact en POST.
+
+> Il faut également déterminer si c'est un administrateur ou un employé, et comparer le tout avec la BDD, depuis espace_pro.php.
+
+> On crée user.php pour y mettre la fonction de vérification du mot de passe.
+
+> session.php viendra démarer la session de l'utilisateur inscrit en BDD et évitera toutes les reco/déco engendrées, et on y met également le cookie de session.

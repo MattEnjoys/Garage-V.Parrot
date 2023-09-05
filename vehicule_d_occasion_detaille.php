@@ -1,25 +1,9 @@
 <?php
 require_once __DIR__ . "/lib/config.php";
 require_once __DIR__ . "/lib/pdo.php";
-require_once __DIR__ . "/lib/car.php";
+
 require_once __DIR__ . "/lib/menu.php";
 require_once __DIR__ . "/templates/header.php";
-
-// $query = $pdo->prepare("
-//     SELECT *
-//     FROM equipements_options AS eo
-//     JOIN modeles AS mdl ON eo.Id_modele = mdl.Id
-//     JOIN marque AS m ON mdl.Id_marque = m.Id
-//     JOIN voitures AS v ON m.Id_modele = v.Id_marque
-//     JOIN photos AS p ON v.Id = p.Id_voiture
-// //     JOIN annonce AS a ON v.Id = a.Id_voiture
-// // ");
-
-// $query->execute();
-// $result = $query->fetchAll(PDO::FETCH_ASSOC);
-
-// Maintenant, $result contient les résultats des jointures des différentes tables
-
 ?>
 <!--
             ___________________________________________________________________________________________
@@ -29,24 +13,29 @@ require_once __DIR__ . "/templates/header.php";
 <section class="container Pink">
     <div class="row flex-lg-row-reverse justify-content-center align-items-center py-5">
         <!-- Carousel -->
+        <!-- Carousel -->
         <div id="carouselExample"
              class="carousel slide mb-3">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="uploads/voitures/<?= htmlentities($voiture['photo']) ?>"
-                         class="d-block ImgCar"
-                         alt="<?= htmlentities($car["title"]) ?>" />
-                </div>
-                <div class="carousel-item">
-                    <img src="uploads/voitures/<?= htmlentities($voiture['photo']) ?>"
-                         class="d-block ImgCar"
-                         alt="<?= htmlentities($car["title"]) ?>" />
-                </div>
-                <div class="carousel-item">
-                    <img src="uploads/voitures/<?= htmlentities($voiture['photo']) ?>"
-                         class="d-block ImgCar"
-                         alt="<?= htmlentities($voiture['marque_nom']) ?>" />
-                </div>
+                <?php
+                // Exemple de données d'images de voitures (à remplacer par vos données)
+                $carImages = [
+                    $imagePath = _CARS_IMAGES_FOLDER_ . htmlentities($voiture["photo"]),
+                    $altText = htmlentities($voiture['marque_nom']) . " " . htmlentities($voiture['modele_nom']),
+                    $imagePath = _CARS_IMAGES_FOLDER_ . htmlentities($voiture["photo"]),
+                    $altText = htmlentities($voiture['marque_nom']) . " " . htmlentities($voiture['modele_nom']),
+                    $imagePath = _CARS_IMAGES_FOLDER_ . htmlentities($voiture["photo"]),
+                    $altText = htmlentities($voiture['marque_nom']) . " " . htmlentities($voiture['modele_nom'])
+                ];
+
+                // Boucle pour générer les éléments du carousel
+                foreach ($carImages as $index => $imagePath) {
+                    $isActive = ($index === 0) ? 'active' : '';
+                    echo '<div class="carousel-item ' . $isActive . '">';
+                    echo '<img src="' . $imagePath . '" class="d-block ImgCar" alt="voiture" />';
+                    echo '</div>';
+                }
+                ?>
             </div>
             <button class="carousel-control-prev"
                     type="button"
@@ -66,18 +55,20 @@ require_once __DIR__ . "/templates/header.php";
             </button>
         </div>
         <!-- Fin Carousel -->
+
+        <!-- Fin Carousel -->
         <!-- Texte -->
         <div class="col-lg-6">
             <div class="d-flex flex-column align-items-center">
                 <h3 class="display-5 fw-bold text-body-emphasis text-center h1 Black lh-1 mb-3">
-                    <?= htmlentities($voiture['marque_nom']) ?>
+                    <?= htmlentities($row['Marque']) ?>
                 </h3>
                 <h3 class="display-5 fw-bold text-body-emphasis text-center h1 Black lh-1 mb-3">
-                    <?= htmlentities($voiture['modele_nom']) ?>
+                    <?= htmlentities($row['Modele']) ?>
                 </h3>
             </div>
             <p class="lead h2-h5 Grey">
-                <?= htmlentities($annnonces["content"]) ?>
+                <?= htmlentities($row["Annonce_content"]) ?>
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                 <a href="contact.php"
@@ -87,7 +78,7 @@ require_once __DIR__ . "/templates/header.php";
             </div>
             <div class="col-lg-12 price">
                 <h3 class="display-5 fw-bold text-body-emphasis h1 Black lh-1 m-3 text-end">
-                    <?= htmlentities($voiture['prix']) ?>
+                    <?= htmlentities($voitures['prix']) ?>
                 </h3>
             </div>
         </div>
@@ -108,14 +99,14 @@ require_once __DIR__ . "/templates/header.php";
                         <th class="h3-p"
                             scope="row">Année :</th>
                         <td class="h3-p">
-                            <?= htmlentities($voiture['annee']) ?>
+                            <?= htmlentities($voitures['annee']) ?>
                         </td>
                     </tr>
                     <tr>
                         <th class="h3-p"
                             scope="row">Energie :</th>
                         <td class="h3-p">
-                            <?= htmlentities($voiture['modele_cylindre']) ?>
+                            <?= htmlentities($voitures['modele_cylindre']) ?>
                         </td>
                     </tr>
                     <tr>
@@ -124,7 +115,7 @@ require_once __DIR__ . "/templates/header.php";
                             Kilométrage :
                         </th>
                         <td class="h3-p">
-                            <?= htmlentities($voiture['kilometrage']) ?>
+                            <?= htmlentities($voitures['kilometrage']) ?>
                         </td>
                     </tr>
                     <tr>

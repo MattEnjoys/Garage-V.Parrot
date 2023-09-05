@@ -50,3 +50,43 @@ $mainMenu = [
         "exclude" => false
     ],
 ];
+
+
+/**
+ * Tableau représentant le menu principal de l'interface d'administration.
+ * Chaque élément du tableau est une page de l'interface d'administration avec ses métadonnées associées.
+ * Chaque élément est représenté par une clé correspondant au nom du fichier de la page,
+ * et une valeur étant un tableau associatif contenant les métadonnées suivantes :
+ * - "menu_title" : Le titre affiché dans le menu pour cette page.
+ * - "head_title" : Le titre affiché dans l'en-tête de la page (balise <title>).
+ * - "meta_description" : La description utilisée dans la balise meta pour le référencement.
+ */
+$mainMenuAdmin = [
+    "index_admin.php" => [
+        "menu_title" => "Admin",
+        "head_title" => "Accueil Admin TechTrendz",
+        "meta_description"
+        => "Admin TechTrendz"
+    ],
+    "index_employes.php" => [
+        "menu_title" => "Admin",
+        "head_title" => "Arcticles TechTrendz",
+        "meta_description"
+        => "Les articles de TechTrendz"
+    ],
+];
+
+$mainMenuEmployes = [
+    "index_admin.php" => [
+        "menu_title" => "Employes",
+        "head_title" => "Accueil Admin TechTrendz",
+        "meta_description"
+        => "Admin TechTrendz"
+    ],
+    "index_employes.php" => [
+        "menu_title" => "Employes",
+        "head_title" => "Arcticles TechTrendz",
+        "meta_description"
+        => "Les articles de TechTrendz"
+    ],
+];

@@ -50,7 +50,7 @@ define("_CARS_IMAGES_FOLDER_", "uploads/voitures/");
 /**
  * Constante définissant l'adresse e-mail de l'application.
  */
-// define("_APP_EMAIL_", "ky9.test@gmail.com");
+define("_APP_EMAIL_", "ky9.test@gmail.com");
 
 /*
 

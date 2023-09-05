@@ -17,7 +17,7 @@ CREATE TABLE roles (
    nom VARCHAR(20)
 );
 
-CREATE TABLE messages (
+CREATE TABLE messages_client (
    Id INT AUTO_INCREMENT PRIMARY KEY,
    nom_client VARCHAR(50),
    prenom_client VARCHAR(50),
@@ -74,12 +74,13 @@ CREATE TABLE utilisateurs (
    nom VARCHAR(50),
    prenom VARCHAR(50),
    email VARCHAR(50),
-   mot_de_passe VARCHAR(50),
+   password VARCHAR(255),
    Id_role INT NOT NULL,
-   Id_message INT NOT NULL,
+   Id_messages_client INT DEFAULT NULL, -- Définition de la colonne avec une valeur par défaut NULL
    FOREIGN KEY (Id_role) REFERENCES roles(Id),
-   FOREIGN KEY (Id_message) REFERENCES messages(Id)
+   FOREIGN KEY (Id_messages_client) REFERENCES messages_client(Id)
 );
+
 
 CREATE TABLE jours (
    Id INT AUTO_INCREMENT PRIMARY KEY,
@@ -176,7 +177,7 @@ INSERT INTO roles (Id, nom) VALUES
 (2, 'Admin'),
 (3, 'Employé');
 
-INSERT INTO messages (nom_client, prenom_client, email, telephone, motif, message) VALUES
+INSERT INTO messages_client (nom_client, prenom_client, email, telephone, motif, message) VALUES
 ('Nom1', 'Prénom1', 'email1@example.com', '1234567890', 'Question', 'This is a question.'),
 ('Nom2', 'Prénom2', 'email2@example.com', '9876543210', 'Inquiry', 'This is an inquiry.'),
 ('Nom3', 'Prénom3', 'email3@example.com', '5555555555', 'Feedback', 'This is some feedback.');
@@ -209,10 +210,9 @@ INSERT INTO possede (Id, Id_1) VALUES
 (4, 4),
 (5, 5);
 
-INSERT INTO utilisateurs (Id_message, Id_role, nom, prenom, email, mot_de_passe) VALUES
-(1, 1, 'Nom1', 'Prénom1', 'email1@example.com', 'motdepasse1'),
-(2, 2, 'Nom2', 'Prénom2', 'email2@example.com', 'motdepasse2'),
-(3, 3, 'Nom3', 'Prénom3', 'email3@example.com', 'motdepasse3');
+INSERT INTO utilisateurs (nom, prenom, email, password, Id_role, Id_messages_client) VALUES
+('Ebzant', 'Matthieu', 'sadmin@admin.fr', 'test', 1, 1),
+('Parrot', 'Vincent', 'admin@admin.fr', 'test', 2, 2);
 
 INSERT INTO annonces (Id, titre, date_publication, Id_voiture,content) VALUES
 (1,'Mc Laren', '2023-08-24 10:00:00', 1, 'annonce 1'),

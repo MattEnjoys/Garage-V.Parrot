@@ -135,7 +135,7 @@ function getCustomers(PDO $pdo): array
     return $customers;
 }
 
-// carrosserie.php, mecanique.php et Entretien.php - Récupérer les infos complètes des services proposés
+// carrosserie.php - Récupérer les infos complètes des services proposés
 // Fonction qui retourne un array
 function getCarrosserie(PDO $pdo): array
 {
@@ -145,21 +145,23 @@ function getCarrosserie(PDO $pdo): array
 
     return $services_carrosserie;
 }
+// mecanique.php
 function getMecanique(PDO $pdo): array
 {
-    $query = $pdo->prepare("SELECT * FROM services_carrosserie");
+    $query = $pdo->prepare("SELECT * FROM services_mecanique");
     $query->execute();
-    $services_carrosserie = $query->fetchAll(PDO::FETCH_ASSOC);
+    $services_mecanique = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    return $services_carrosserie;
+    return $services_mecanique;
 }
+// entretien.php
 function getEntretien(PDO $pdo): array
 {
-    $query = $pdo->prepare("SELECT * FROM services_carrosserie");
+    $query = $pdo->prepare("SELECT * FROM services_entretien");
     $query->execute();
-    $services_carrosserie = $query->fetchAll(PDO::FETCH_ASSOC);
+    $services_entretien = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    return $services_carrosserie;
+    return $services_entretien;
 }
 
 // vehicules_d_occasion.php - Récupérer les infos pour une card de voiture
