@@ -2,7 +2,7 @@
 /**
  * Constante définissant le nom de domaine du site.
  */
-define("_DB_SERVER_", "localhost");
+define("_DOMAIN_", "localhost");
 // define("_DOMAIN_", "techtrendz-st.mebzant.fr");
 /**
  * Constante définissant le nom de la base de données utilisée par le site.

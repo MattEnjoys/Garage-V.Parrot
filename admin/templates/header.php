@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . "/../../lib/config.php";
-// require_once __DIR__ . "/../../lib/session.php";
+require_once __DIR__ . "/../../lib/session.php";
 require_once __DIR__ . "/../../lib/menu.php";
 // adminOnly();
 ?>
@@ -14,7 +14,7 @@ require_once __DIR__ . "/../../lib/menu.php";
           content="IE=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>Page administrateur</title>
+    <title>Back_Office</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
@@ -31,16 +31,22 @@ require_once __DIR__ . "/../../lib/menu.php";
 
     <div class="container d-flex">
         <header>
-            <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
+            <div class="d-flex flex-column align-items-center flex-shrink-0 p-3 text-bg-dark"
                  style="width: 280px;">
-                <a href="/"
+                <a href="./index_admin.php"
                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <svg class="bi pe-none me-2"
-                         width="40"
-                         height="32">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                    <span class="fs-4">Panel Admin</span>
+                    <?php
+                    if (isset($_SESSION['user_role'])) {
+                        $userRole = $_SESSION['user_role'];
+                        if ($userRole === 'SuperAdmin' || $userRole === 'Admin') {
+                            echo '<div class="row rowfooter justify-content-center">
+                                <p class="fs-4">Panel Administrateur</p>';
+                        } elseif ($userRole === 'Employé') {
+                            echo '<div class="row rowfooter justify-content-center">
+                                <p class="fs-4">Panel Employé</p>';
+                        }
+                    }
+                    ?>
                 </a>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto align-items-center">
@@ -53,7 +59,7 @@ require_once __DIR__ . "/../../lib/menu.php";
                                        echo "active"; ?>">
                                     <?php if ($key === "index_admin.php") { ?>
                                         <i class="bi bi-speedometer2 pe-none me-2"></i>
-                                    <?php } elseif ($key === "articles_admin.php") { ?>
+                                    <?php } elseif ($key === "inscription.php") { ?>
                                         <i class="bi bi-table pe-none me-2"></i>
                                     <?php } ?>
                                     <?= $menuItem["menu_title"]; ?>
@@ -64,12 +70,11 @@ require_once __DIR__ . "/../../lib/menu.php";
                 </ul>
                 <hr>
                 <div class="d-flex flex-column flex-shrink-0 text-bg-dark">
-                    <?php if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin') { ?>
+                    <?php if (isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], ['SuperAdmin', 'Admin', 'Employé'])) { ?>
                         <a href="../logout.php"
                            class="btn btn-primary">Déconnexion</a>
                     <?php } ?>
                 </div>
-                <hr>
             </div>
         </header>
         <!-- Fin NavBar de Bootstrap -->

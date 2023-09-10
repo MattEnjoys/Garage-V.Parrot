@@ -211,8 +211,10 @@ INSERT INTO possede (Id, Id_1) VALUES
 (5, 5);
 
 INSERT INTO utilisateurs (nom, prenom, email, password, Id_role, Id_messages_client) VALUES
-('Ebzant', 'Matthieu', 'sadmin@admin.fr', 'test', 1, 1),
-('Parrot', 'Vincent', 'admin@admin.fr', 'test', 2, 2);
+('Ebzant', 'Matthieu', 'sadmin@admin.fr', '$2y$10$7wbGFHNjY2GWRtjn5gaPae406R11Cv2l7vfmlF2rL4.Iz.9IbQMke', 1, NULL),
+('Parrot', 'Vincent', 'admin@admin.fr', '$2y$10$P.ZDaIbIlcfFpRd2tXY/iOoxkZaAGLv3HUMmGG2ebq96X/xyMpzHK', 2, NULL),
+('Doe', 'John', 'employe1@admin.fr', '$2y$10$qT0I7DedNVA1z6AGUzO6IeYSXtvNRqMFHnytMhVYGNRaPqdvcH6VW', 3, NULL),
+('Doe', 'Jane', 'employe2@admin.fr', '$2y$10$GPYC5JplMCqk2iC4Gmd9h.tbm4tuTel1ODgwLec5U9pe7Xi0TsV8C', 3, NULL);
 
 INSERT INTO annonces (Id, titre, date_publication, Id_voiture,content) VALUES
 (1,'Mc Laren', '2023-08-24 10:00:00', 1, 'annonce 1'),

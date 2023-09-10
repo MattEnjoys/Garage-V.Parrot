@@ -1,26 +1,6 @@
 <?php
-function generateCSSLink($page)
-{
-    $cssFiles = array(
-        'reset.css',
-        'index.php' => 'style.css',
-        'carrosserie.php' => 'services.css',
-        'mecanique.php' => 'services.css',
-        'entretien.php' => 'services.css',
-        'vehicule_d_occasion.php' => 'vehicule_d_occasion.css',
-        'vehicule_d_occasion_detaille.php' => 'vehicule_d_occasion_detaille.css',
-        'contact.php' => 'contact.css',
-        'espace_pro.php' => 'espace_pro.css'
-    );
-
-    $defaultCSS = 'reset.css';
-
-    $selectedCSS = $cssFiles[$page] ?? $defaultCSS;
-
-    return '<link rel="stylesheet" type="text/css" href="' . $selectedCSS . '">';
-}
-$currentPage = basename($_SERVER['PHP_SELF']);
-echo generateCSSLink($currentPage);
+require_once __DIR__ . "/../lib/config.php";
+require_once __DIR__ . "/../lib/session.php";
 $currentPage = basename($_SERVER["SCRIPT_NAME"]);
 ?>
 <!DOCTYPE html>
@@ -71,8 +51,6 @@ $currentPage = basename($_SERVER["SCRIPT_NAME"]);
 
     <link rel="stylesheet"
           href="assets/css/reset.css" />
-    <link rel="stylesheet"
-          href="assets/css/<?= $currentPageCSS; ?>" />
 
     <title>
         <?= $mainMenu[$currentPage]["head_title"]; ?>
@@ -107,18 +85,27 @@ $currentPage = basename($_SERVER["SCRIPT_NAME"]);
                 <div class="collapse navbar-collapse"
                      id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <?php foreach ($mainMenu as $key => $menuItem) {
-                            if (!$menuItem["exclude"]) {
-                                ?>
-                                <li class="nav-item"><a href="<?= $key; ?>"
-                                       class="nav-link h2-h5 Black text-center
-                            <?php if ($key === $currentPage) {
-                                echo "active";
+                        <?php
+                        // Assurez-vous que $mainMenu est défini avant d'itérer
+                        if (isset($mainMenu) && is_array($mainMenu)) {
+                            foreach ($mainMenu as $menuKey => $menuItem) {
+                                // Vérifiez si l'élément doit être exclu
+                                if (!$menuItem["exclude"]) {
+                                    $isActive = ($menuKey === $currentPage) ? "active" : "";
+                                    $menuTitle = htmlspecialchars($menuItem["menu_title"], ENT_QUOTES, 'UTF-8'); // Échapper les valeurs pour la sécurité
+                                    ?>
+                                    <li class="nav-item">
+                                        <a href="<?= htmlspecialchars($menuKey, ENT_QUOTES, 'UTF-8'); ?>"
+                                           class="nav-link h2-h5 Black text-center <?= $isActive; ?>">
+                                            <?= $menuTitle; ?>
+                                        </a>
+                                    </li>
+                                    <?php
+                                }
                             }
-                            ?>"><?= $menuItem["menu_title"]; ?></a>
-                                </li>
-                            <?php }
-                        } ?>
+                        }
+                        ?>
+
                     </ul>
                     <div class="NavFollow">
                         <ul class="Follow d-flex justify-content-center p-0">

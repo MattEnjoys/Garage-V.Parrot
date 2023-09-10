@@ -1,41 +1,70 @@
 <?php
+ob_start(); // Démarre la mise en mémoire tampon
+require_once __DIR__ . "/lib/menu.php";
+require_once __DIR__ . "/templates/header.php";
 require_once __DIR__ . "/lib/config.php";
 require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/user.php";
-require_once __DIR__ . "/lib/menu.php";
-require_once __DIR__ . "/templates/header.php";
 
 $errors = [];
 
-// Rajouter une condition pour ne pas envoyer le formulaire si le formulaire est vide
-if (isset($_POST["loginUser"])) {
-    $email = $_POST["email"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Valider et nettoyer les données du formulaire
+    $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
     $password = $_POST["password"];
 
-    $user = verifyUserLoginPassword($pdo, $email, $password);
-    if ($user) {
-        if ($user["Id_role"] === "2") {
-            header("location: admin/index_admin.php");
-        } elseif ($user["Id_role"] === "3") {
-            header("location: admin/index_employes.php");
-        }
+    if (!$email || empty($password)) {
+        $errors[] = "Veuillez remplir tous les champs.";
     } else {
-        $errors[] = "Email ou mot de passe incorrect";
+        // Utilisez la variable $pdo pour préparer la requête SQL
+        $query = "SELECT Id, nom, prenom, email, password, Id_role FROM utilisateurs WHERE email = ?";
+        $stmt = $pdo->prepare($query); // Utilisez $pdo au lieu de $conn
+        $stmt->execute([$email]); // Passez le paramètre directement dans execute
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC); // Utilisez fetch pour obtenir le résultat sous forme de tableau associatif
+
+        if ($result) {
+            if (password_verify($password, $result["password"])) {
+                // Connexion réussie
+                session_start();
+                $_SESSION["user_id"] = $result["Id"];
+                $_SESSION["user_email"] = $result["email"];
+                $_SESSION["user_nom"] = $result["nom"];
+                $_SESSION["user_prenom"] = $result["prenom"];
+
+                // Ajoutez une requête pour récupérer le nom du rôle de l'utilisateur
+                $queryRole = "SELECT nom FROM roles WHERE Id = ?";
+                $stmtRole = $pdo->prepare($queryRole);
+                $stmtRole->execute([$result["Id_role"]]);
+                $roleResult = $stmtRole->fetch(PDO::FETCH_ASSOC);
+
+                if ($roleResult) {
+                    $_SESSION["user_role"] = $roleResult["nom"];
+                    echo "Rôle de l'utilisateur : " . $_SESSION["user_role"];
+
+                    // Redirection en fonction du rôle
+                    if ($_SESSION["user_role"] == 'SuperAdmin' || $_SESSION["user_role"] == 'Admin' || $_SESSION["user_role"] == 'Employé') {
+                        header("Location: admin/index_admin.php");
+                        exit(); // Arrête l'exécution du script ici
+                    } else {
+                        header("Location: index.php");
+                        exit(); // Arrête l'exécution du script ici
+                    }
+                }
+            } else {
+                $errors[] = "Mot de passe incorrect.";
+            }
+        } else {
+            $errors[] = "Aucun utilisateur trouvé avec cet email.";
+        }
     }
 }
-
-
-
+ob_end_flush(); // Envoie le contenu de la mise en mémoire tampon et désactive la mise en mémoire tampon
 ?>
-<!--
-            ___________________________________________________________________________________________
-                                                    SECTION BANNIERE
-            ___________________________________________________________________________________________
-            -->
+
+
 <section class="ImgBannerTop">
-    <!-- Image -->
     <div class="ImgBanner ImgConnexion d-flex justify-content-center align-items-center mb-5">
-        <!-- Formulaire de connexion -->
         <div class="container col-xl-10 col-xxl-8 px-4 py-5">
             <form method="POST"
                   enctype="multipart/form-data"
@@ -74,22 +103,13 @@ if (isset($_POST["loginUser"])) {
                     <button class="btn btn-lg btn-order h2-h5"
                             type="submit"
                             value="Connexion"
-                            name="loginUser">
-                        Se connecter
-                    </button>
+                            name="loginUser">Se connecter</button>
+                </div>
             </form>
         </div>
     </div>
-    <!-- Fin Formulaire de connexion -->
-    </div>
-    <!-- Fin Image -->
 </section>
-<!--
-            ___________________________________________________________________________________________
-                                                    FIN SECTION BANNIERE
-            ___________________________________________________________________________________________
-            -->
-</main>
+
 <?php
 require_once __DIR__ . "/templates/footer.php";
 ?>

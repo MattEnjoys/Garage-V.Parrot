@@ -62,31 +62,31 @@ $mainMenu = [
  * - "meta_description" : La description utilisée dans la balise meta pour le référencement.
  */
 $mainMenuAdmin = [
-    "index_admin.php" => [
-        "menu_title" => "Admin",
-        "head_title" => "Accueil Admin TechTrendz",
+    "liste.php" => [
+        "menu_title" => "Liste des employés",
+        "head_title" => "Liste employés",
         "meta_description"
-        => "Admin TechTrendz"
+        => "Voir tous les employé enregistrés."
     ],
-    "index_employes.php" => [
-        "menu_title" => "Admin",
-        "head_title" => "Arcticles TechTrendz",
+    "inscription.php" => [
+        "menu_title" => "Nouvel employé",
+        "head_title" => "Nouvel employé",
         "meta_description"
-        => "Les articles de TechTrendz"
+        => "Ajouter un nouvel employé."
     ],
 ];
 
-$mainMenuEmployes = [
-    "index_admin.php" => [
-        "menu_title" => "Employes",
-        "head_title" => "Accueil Admin TechTrendz",
-        "meta_description"
-        => "Admin TechTrendz"
-    ],
-    "index_employes.php" => [
-        "menu_title" => "Employes",
-        "head_title" => "Arcticles TechTrendz",
-        "meta_description"
-        => "Les articles de TechTrendz"
-    ],
-];
+// $mainMenuEmployes = [
+//     "index_admin.php" => [
+//         "menu_title" => "Employes",
+//         "head_title" => "Accueil Admin TechTrendz",
+//         "meta_description"
+//         => "Admin TechTrendz"
+//     ],
+//     "index_employes.php" => [
+//         "menu_title" => "Employes",
+//         "head_title" => "Arcticles TechTrendz",
+//         "meta_description"
+//         => "Les articles de TechTrendz"
+//     ],
+// ];
