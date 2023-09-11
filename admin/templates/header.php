@@ -57,9 +57,9 @@ require_once __DIR__ . "/../../lib/menu.php";
                                 <a href="<?= $key; ?>"
                                    class="nav-link px-2 <?php if ($key === $currentPage)
                                        echo "active"; ?>">
-                                    <?php if ($key === "index_admin.php") { ?>
+                                    <?php if ($key === "liste_admin.php") { ?>
                                         <i class="bi bi-speedometer2 pe-none me-2"></i>
-                                    <?php } elseif ($key === "inscription.php") { ?>
+                                    <?php } elseif ($key === "ouvertures.php") { ?>
                                         <i class="bi bi-table pe-none me-2"></i>
                                     <?php } ?>
                                     <?= $menuItem["menu_title"]; ?>

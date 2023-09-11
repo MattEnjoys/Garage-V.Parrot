@@ -250,3 +250,28 @@ INSERT INTO avis (nom_client, prenom_client, commentaire, note, valider) VALUES
 ('Dupont', 'Alice', 'Excellent service, très satisfait !', 5, true),
 ('Martin', 'Julien', 'Bonne expérience, quelques points à améliorer.', 3, true),
 ('Leclerc', 'Sophie', 'Mauvais service, déçu par la qualité.', 1, true);
+
+INSERT INTO jours (nom, Id_utilisateur) VALUES
+('Lundi', 2),
+('Mardi', 2),
+('Mercredi', 2),
+('Jeudi', 2),
+('Vendredi', 2),
+('Samedi', 2),
+('Dimanche', 2);
+
+INSERT INTO horaires (ouverture, fermeture, Id_jour) VALUES
+('09:00', '12:00', 1),
+('14:00', '17:00', 1),
+('10:00', '12:00', 2),
+('14:00', '18:00', 2),
+('08:30', '12:30', 3),
+('14:30', '16:30', 3),
+('09:30', '12:30', 4),
+('14:30', '17:30', 4),
+('09:00', '12:00', 5),
+('14:00', '16:00', 5),
+('11:00', '12:00', 6),
+('14:00', '19:00', 6),
+('12:00', '12:00', 7),
+('14:00', '18:00', 7);

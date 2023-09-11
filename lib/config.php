@@ -45,7 +45,7 @@ define("_CARS_IMAGES_FOLDER_", "uploads/voitures/");
 /**
  * Constante définissant le nombre d'éléments par page dans l'interface d'administration.
  */
-// define("_ADMIN_ITEM_PER_PAGE_", 10);
+define("_ADMIN_ITEM_PER_PAGE_", 10);
 
 /**
  * Constante définissant l'adresse e-mail de l'application.

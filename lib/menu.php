@@ -62,17 +62,17 @@ $mainMenu = [
  * - "meta_description" : La description utilisée dans la balise meta pour le référencement.
  */
 $mainMenuAdmin = [
-    "liste.php" => [
+    "liste_admin.php" => [
         "menu_title" => "Liste des employés",
         "head_title" => "Liste employés",
         "meta_description"
         => "Voir tous les employé enregistrés."
     ],
-    "inscription.php" => [
-        "menu_title" => "Nouvel employé",
-        "head_title" => "Nouvel employé",
+    "ouvertures.php" => [
+        "menu_title" => "Modifier les horaires d'ouverture",
+        "head_title" => "Modifier les horaires d'ouverture",
         "meta_description"
-        => "Ajouter un nouvel employé."
+        => "Modifier les horaires d'ouverture du magasin."
     ],
 ];
 

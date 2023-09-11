@@ -221,3 +221,11 @@ Puis, en structurant le travail, je réalise le projet en différentes étapes:
 > On crée user.php pour y mettre la fonction de vérification du mot de passe.
 
 > session.php viendra démarer la session de l'utilisateur inscrit en BDD et évitera toutes les reco/déco engendrées, et on y met également le cookie de session.
+
+## Utilisateurs
+
+> Ajout d'un panel d'utilisateurs ou l'on pourra ajouter, supprimer ou modifier un employé inscrit en BDD.
+
+## Modification dynamique des heures d'ouverture
+
+> Après avoir récupéré le footer, on le modifie de manière dynamique.
