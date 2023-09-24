@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/../lib/css.php";
 require_once __DIR__ . "/../lib/config.php";
 require_once __DIR__ . "/../lib/session.php";
 $currentPage = basename($_SERVER["SCRIPT_NAME"]);
@@ -67,7 +68,7 @@ $currentPage = basename($_SERVER["SCRIPT_NAME"]);
         <nav class="cc-navbar navbar navbar-expand-lg position-fixed w-100">
             <div class="container-fluid">
                 <a class="navbar-brand"
-                   href="/PHP/Passage en PHP/Garage-V.Parrot/index.php">
+                   href="/PHP/Garage-V.Parrot/index.php">
                     <img src="assets/images/Logo transparent.png"
                          alt="Logo Garage"
                          width="250"

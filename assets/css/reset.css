@@ -177,33 +177,33 @@ a.btn-order {
 }
 /* Images des bannières */
 .ImgWelcome {
-    background: url("assets/images/Accueil.jpg");
+    background: url("../images/Accueil.jpg");
     background-position: center;
     background-size: cover;
 }
 .ImgCarrosserie {
-    background: url("assets/images/Carrosserie.jpg");
+    background: url("../images/Carrosserie.jpg");
     background-position: center;
     background-size: cover;
 }
 .ImgMecanique {
-    background: url("assets/images/Mécanique.jpg");
+    background: url("../images/Mécanique.jpg");
     background-position: center;
     background-size: cover;
 }
 .ImgEntretien {
-    background: url("assets/images/Entretien.jpg");
+    background: url("../images/Entretien.jpg");
     background-position: center;
     background-size: cover;
 }
 .ImgContact {
-    background: url("assets/images/Contact\ BG.jpg");
+    background: url("../images/Contact\ BG.jpg");
     background-position: center;
     background-size: cover;
     height: 1000px;
 }
 .ImgConnexion {
-    background: url("assets/images/Connexion\ BG.jpg");
+    background: url("../images/Connexion\ BG.jpg");
     background-position: center;
     background-size: cover;
     height: 1000px;

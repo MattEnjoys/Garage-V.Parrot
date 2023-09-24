@@ -1,10 +1,13 @@
 <?php
 ob_start(); // Démarre la mise en mémoire tampon
+require_once __DIR__ . "/lib/css.php";
 require_once __DIR__ . "/lib/menu.php";
 require_once __DIR__ . "/templates/header.php";
 require_once __DIR__ . "/lib/config.php";
 require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/user.php";
+
+generateCssLinks($currentPage); // Appelle la fonction pour inclure les fichiers CSS
 
 $errors = [];
 

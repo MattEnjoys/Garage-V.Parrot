@@ -33,11 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 echo "Fermé"; // Affiche "Fermé" si les horaires n'existent pas
                             }
                             ?>
-                            <a href="modification.php"
-                               class="btn d-flex justify-content-center btn-primary btn-sm ml-2">Modifier</a>
                         </p>
                     </li>
                 <?php endforeach; ?>
+                <a href="modification.php"
+                   class="btn d-flex justify-content-center btn-primary btn-sm ml-2">Modifier</a>
             </ul>
         </form>
     </div>

@@ -3,18 +3,6 @@ require_once __DIR__ . "/templates/header.php";
 require_once __DIR__ . "/../lib/pdo.php";
 require_once __DIR__ . "/../lib/admin.php";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $dayId = $_POST["dayId"];
-    $newHoraires = $_POST["horaires_" . $dayId];
-
-    // Mettre à jour les horaires d'ouverture en utilisant $dayId et $newHoraires
-    // Ajoutez ici la logique pour mettre à jour les horaires dans la base de données ou autre source de données
-
-    // Redirige vers ouvertures.php après la mise à jour
-    header("Location: ouvertures.php");
-    exit;
-}
-
 $jours = getAllDays($pdo);
 ?>
 
@@ -27,22 +15,108 @@ $jours = getAllDays($pdo);
                 <?php foreach ($jours as $jour): ?>
                     <li class="nav-item mb-2">
                         <hr>
-                        <p class="nav-link p-0 text-body-secondary mb-1 h2-h5">
+                        <p class="p-0 text-body-secondary text-center mb-1 h2-h5">
                             <?= $jour ?> :
-                            <input type="text"
-                                   name="horaires_<?= $jour ?>"
-                                   value="08:45 - 12:00 | 14:00 - 18:00">
-                            <input type="hidden"
-                                   name="dayId"
-                                   value="<?= $jour ?>">
-                            <button type="submit"
-                                    class="btn d-flex justify-content-center btn-primary btn-sm ml-2">Modifier</button>
+                            <!-- Sélecteur 1 (Matin ouverture) -->
+                        <div class="p-0 text-body-secondary mb-1 h2-h5">
+                            <label for="horaires_<?= $jour ?>_matin">Heures d'ouverture matin</label>
+                            <select name="horaires_<?= $jour ?>_matin"
+                                    id="horaires_<?= $jour ?>_matin">
+                                <option value="ferme"
+                                        selected>00:00</option>
+                                <?php
+                                // Boucle pour générer les intervalles horaires de 8:00 à 12:30
+                                for ($heure = 8; $heure <= 12; $heure++) {
+                                    for ($minute = 0; $minute < 60; $minute += 15) {
+                                        if ($heure < 12 || ($heure == 12 && $minute <= 30)) {
+                                            $heure_format = str_pad($heure, 2, '0', STR_PAD_LEFT);
+                                            $minute_format = str_pad($minute, 2, '0', STR_PAD_LEFT);
+                                            $heure_minute = "$heure_format:$minute_format";
+                                            echo "<option value=\"$heure_minute\">$heure_minute</option>";
+                                        }
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <!-- Fin Sélecteur 1 (Matin ouverture) -->
+                        <!-- Sélecteur 1 (Matin fermeture) -->
+                        <div class="p-0 text-body-secondary mb-1 h2-h5">
+                            <label for="horaires_<?= $jour ?>_fermeture_matin">Heures de fermeture matin</label>
+                            <select name="horaires_<?= $jour ?>_fermeture_matin"
+                                    id="horaires_<?= $jour ?>_fermeture_matin">
+                                <option value="ferme"
+                                        selected>00:00</option>
+                                <?php
+                                // Boucle pour générer les intervalles horaires de 8:00 à 12:30
+                                for ($heure = 8; $heure <= 12; $heure++) {
+                                    for ($minute = 0; $minute < 60; $minute += 15) {
+                                        if ($heure < 12 || ($heure == 12 && $minute <= 30)) {
+                                            $heure_format = str_pad($heure, 2, '0', STR_PAD_LEFT);
+                                            $minute_format = str_pad($minute, 2, '0', STR_PAD_LEFT);
+                                            $heure_minute = "$heure_format:$minute_format";
+                                            echo "<option value=\"$heure_minute\">$heure_minute</option>";
+                                        }
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <!-- Fin Sélecteur 1 (Matin fermeture) -->
+                        <!-- Sélecteur 2 (Après-midi ouverture) -->
+                        <div class="p-0 text-body-secondary mb-1 h2-h5">
+                            <label for="horaires_<?= $jour ?>_apres_midi">Heures d'ouverture après-midi</label>
+                            <select name="horaires_<?= $jour ?>_apres_midi"
+                                    id="horaires_<?= $jour ?>_apres_midi">
+                                <option value="ferme"
+                                        selected>00:00</option>
+                                <?php
+                                // Boucle pour générer les intervalles horaires de 13:00 à 20:30
+                                for ($heure = 13; $heure <= 20; $heure++) {
+                                    for ($minute = 0; $minute < 60; $minute += 15) {
+                                        if ($heure < 20 || ($heure == 20 && $minute <= 30)) {
+                                            $heure_format = str_pad($heure, 2, '0', STR_PAD_LEFT);
+                                            $minute_format = str_pad($minute, 2, '0', STR_PAD_LEFT);
+                                            $heure_minute = "$heure_format:$minute_format";
+                                            echo "<option value=\"$heure_minute\">$heure_minute</option>";
+                                        }
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <!-- Fin Sélecteur 2 (Après-midi ouverture) -->
+                        <!-- Sélecteur 2 (Après-midi fermeture) -->
+                        <div class="p-0 text-body-secondary mb-1 h2-h5">
+                            <label for="horaires_<?= $jour ?>_fermeture_apres_midi">Heures de fermeture après-midi</label>
+                            <select name="horaires_<?= $jour ?>_fermeture_apres_midi"
+                                    id="horaires_<?= $jour ?>_fermeture_apres_midi">
+                                <option value="ferme"
+                                        selected>00:00</option>
+                                <?php
+                                // Boucle pour générer les intervalles horaires de 13:00 à 20:30
+                                for ($heure = 13; $heure <= 20; $heure++) {
+                                    for ($minute = 0; $minute < 60; $minute += 15) {
+                                        if ($heure < 20 || ($heure == 20 && $minute <= 30)) {
+                                            $heure_format = str_pad($heure, 2, '0', STR_PAD_LEFT);
+                                            $minute_format = str_pad($minute, 2, '0', STR_PAD_LEFT);
+                                            $heure_minute = "$heure_format:$minute_format";
+                                            echo "<option value=\"$heure_minute\">$heure_minute</option>";
+                                        }
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <!-- Fin Sélecteur 2 (Après-midi fermeture) -->
                         </p>
                     </li>
                 <?php endforeach; ?>
             </ul>
+            <button type="submit"
+                    class="btn btn-primary btn-lg">Mettre à jour</button>
         </form>
     </div>
 </div>
 
-<?php require_once('templates/footer.php'); ?>
+<?php require_once __DIR__ . "/templates/footer.php"; ?>

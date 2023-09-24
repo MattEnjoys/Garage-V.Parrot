@@ -1,10 +1,12 @@
 <?php
+require_once __DIR__ . "/lib/css.php";
 require_once __DIR__ . "/lib/config.php";
 require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/car.php";
 require_once __DIR__ . "/lib/menu.php";
 require_once __DIR__ . "/templates/header.php";
 
+generateCssLinks($currentPage); // Appelle la fonction pour inclure les fichiers CSS
 $cars = getCars($pdo);
 ?>
 <!--

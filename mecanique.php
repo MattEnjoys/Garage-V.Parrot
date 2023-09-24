@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/lib/css.php";
 require_once __DIR__ . "/lib/config.php";
 require_once __DIR__ . "/lib/pdo.php";
 // require_once __DIR__ . "/lib/cards.php";
@@ -6,6 +7,7 @@ require_once __DIR__ . "/lib/car.php";
 require_once __DIR__ . "/lib/menu.php";
 require_once __DIR__ . "/templates/header.php";
 
+generateCssLinks($currentPage); // Appelle la fonction pour inclure les fichiers CSS
 $mecaniques = getMecanique($pdo);
 
 ?>
@@ -16,7 +18,7 @@ $mecaniques = getMecanique($pdo);
         -->
 <section class="ImgBannerTop">
     <!-- Image -->
-    <div class="ImgBanner ImgCarrosserie d-flex justify-content-center align-items-center mb-5">
+    <div class="ImgBanner ImgMecanique d-flex justify-content-center align-items-center mb-5">
         <!-- Texte sur Image avec fond grey -->
         <div class="WhiteBackground fw-bold h1 Black text-center">
             <h1>Service Mécanique</h1>

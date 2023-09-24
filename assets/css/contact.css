@@ -16,19 +16,9 @@ main {
     box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
     border: 2px solid black;
 }
-/* .RightContact {
-    width: auto;
-} */
-
 .RightContact,
-.LeftConnexion {
+.LeftContact {
     padding: 25px 25px;
-}
-
-.RightConnexion {
-    background: url("/assets/images/Connexion\ BG.jpg") center no-repeat;
-    background-size: cover;
-    height: 100%;
 }
 h2 {
     position: relative;
@@ -46,15 +36,15 @@ h2:after {
     border-radius: 2px;
     background-color: #d92332;
 }
-@media screen and (min-width: 426px) {
+/* @media screen and (min-width: 426px) {
     .contact-box {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        margin: 16% 0 16% 0;
+        margin: 20% 0 20% 0;
     }
     .LeftContact {
-        background: url("/assets/images/Contact\ BG.jpg") center no-repeat;
+        background: url("../images/Connexion\ BG.jpg") center no-repeat;
         background-size: cover;
         height: 100%;
     }
-}
+} */
